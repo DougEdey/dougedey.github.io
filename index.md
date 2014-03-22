@@ -17,7 +17,7 @@ I find learning about the intricities of products to be extremely fulfilling, th
 I started homebrewing beer in 2011, and I took over control of the [StrangeBrew](http://dougedey.github.io/StrangeBrew) recipe tool from Drew Avis. This was because of my desire to push it forward and fix issues within it. I liked it because of the write-once ability of Java (mostly).
 
 ## StrangeBrew Elsinore
-In 2012 I started work on [StrangeBrew Elsinore](http://dougedey.github.io/SB_Elsinore_Server/), as a standlone, open source piece of software that allows control of electric homebrewing setups. With no scalability limits. Running on Beaglebone Black and Raspberry Pi.
+In 2012 I started work on [StrangeBrew Elsinore](http://dougedey.github.io/SB_Elsinore_Server/), as a standlone, open source piece of software that allows control of electric homebrewing setups. With no scalability limits. Running on Beaglebone Black and Raspberry Pi. A HBT User helped me to get some [Raspberry Pi Documentation](http://dougedey.github.io/2014/03/22/Raspberry-Pi-Basic-Setup/) written
 
 ## jGPIO
 Whilst writing StrangeBrew Elsinore for the Beaglebone Black, I discovered that Linux Kernel 3.8 used something called Device Tree Overlays, these are not the easiest thing to understand, but it requires custom files to be written and compiled before the GPIO/Pinouts can be used by application. So I wrote a Java based application that generates the files, aswell as provide a support library for Java that allows Java access to pins. It's not feature complete (I haven't added PWM yet) but it allows digital and analogue I/O. I wrote my own because I found limitations by other available libraries.
