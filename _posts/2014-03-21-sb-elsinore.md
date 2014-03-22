@@ -1,3 +1,10 @@
+---
+layout: page
+title: StrangeBrew Elsinore
+description: ""
+---
+{% include JB/setup %}
+
 Strangebrew Elsinore Server
 ==================
 
@@ -81,7 +88,7 @@ Adding
 ``` cutoff = <string> ```
 To any of the devices, will kill Elsinore when the temperature for that device goes above it.
 
-The String is in the form: <number><scale>
+The String is in the form: ``` <number><scale>```
 
 So in the config file below, I can use 85C as a cutoff temperature and it'll turn off when it goes above 85C
 
@@ -94,7 +101,7 @@ Also, to enable the System Temperature reading, please add
 
 ``` <system /> ```
 
-In the <general> section of the configuration file.
+In the ``` <general> ``` section of the configuration file.
 
 Timers
 =========
