@@ -16,9 +16,7 @@ The [Beaglebone Black](http://beagleboard.org/Products/BeagleBone+Black) is simi
 
 You _must_ set the "Gpio_definitions" property on launch 
 
-``` 
-java -Dgpio_definitions=extras/beaglebone.json -jar Elsinore.jar
-```
+``` java -Dgpio_definitions=extras/beaglebone.json -jar Elsinore.jar ```
 
 Otherwise the system will error
 
