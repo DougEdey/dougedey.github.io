@@ -1,6 +1,7 @@
 ---
 layout: page
 title: StrangeBrew Elsinore
+tagline: "An Opensource Brewery Controller"
 description: ""
 ---
 {% include JB/setup %}

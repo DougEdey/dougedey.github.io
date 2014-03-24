@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Dougs Pages"
-tagline: "Used for documenting and discussing DougEdeys projects"
+title : "Dougs Pages"
+tagline : "About the projects"
 ---
 {% include JB/setup %}
 

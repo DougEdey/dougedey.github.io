@@ -1,16 +1,19 @@
 ---
 layout: page
 title: Raspberry Pi Basic Setup for StrangeBrew Elsinore
+tagline: "Thanks to Cank!"
 description: ""
 ---
-Raspberry Pi Basic Setup
-======================
 
 This is very kindly provided by [HBT User Cank](http://www.homebrewtalk.com/f170/raspberry-pi-strangebrew-elsinore-basic-setup-463590/)
+
+### Setup the Operating System
 
 [Download and install latest NOOBS](http://www.raspberrypi.org/downloads)
 
 Install Raspbian Operating system and set it up based on your location.
+
+### Setup the Hardware
 
 [Set up your DS18 probes](https://www.cl.cam.ac.uk/projects/raspberrypi/tutorials/temperature/)
 
@@ -29,6 +32,8 @@ Then reboot
 
 	sudo reboot
 
+### Download Elsinore
+
 Download the SB_Elsinore_Server from git
 
 	git clone https://github.com/DougEdey/SB_Elsinore_Server.git ~/BrewServer
@@ -41,6 +46,12 @@ Run Elsinore
 
 	sudo java -jar Elsinore.jar
 
+### Choosing the GPIO Pins
+See this [post](http://www.homebrewtalk.com/f170/raspberry-pi-strangebrew-elsinore-basic-setup-463590/index3.html#post5986888) to make sure you use the correct GPIO pins for output and you don't choose one that is in the default HIGH state when the Pi boots up!!!
+
+**It is highly recommended you setup a KILL SWITCH that will terminate the negative and/or the positive to the SSRs. This is a safety feature and allows you to kill the SSRs without going through the UI**
+
+### First time setup
 
 It will run some lines of code then show a list of your sensors and ask you to:
 
@@ -50,6 +61,7 @@ It will run some lines of code then show a list of your sensors and ask you to:
 
 ![Initial Setup](http://cdn.homebrewtalk.com/attachments/f170/183770d1394036656-raspberry-pi-strangebrew-elsinore-basic-setup-elsinoresetup1.jpg)
 
+### Some errors
 
 If you see
 
@@ -61,7 +73,7 @@ If you get an error at this point saying it can't see your sensor check out this
 
 It might ask you about switching to OWFS. Say No.
 
-See this [post](http://www.homebrewtalk.com/f170/raspberry-pi-strangebrew-elsinore-basic-setup-463590/index3.html#post5986888) to make sure you use the correct GPIO pins for output and you don't choose one that is in the default HIGH state when the Pi boots up!!!
+### Setting up the System
 
 At this point enter the number of the sensor you want to set up and hit enter. (I only had one so I entered "1" and hit enter.
 It will ask you to name it. (I named mine "HLT")
@@ -87,9 +99,13 @@ It will tell you:
 	Creating element of general
 	Creating on configDoc base
 
+### Copying the config file
+
 If it didn't create this last file, type this:
 
 	cp elsinore.cfg.new elsinore.cfg
+
+### Running and using Elsinore
 
 Then run:
 
@@ -101,6 +117,8 @@ and in a web browser go to the Raspberry Pi IP address
 
 You should see:
 ![Web Interface](http://cdn.homebrewtalk.com/attachments/f170/183772d1394036656-raspberry-pi-strangebrew-elsinore-basic-setup-elsinore3.jpg)
+
+### Stopping elsinore
 
 Stops the application
 
