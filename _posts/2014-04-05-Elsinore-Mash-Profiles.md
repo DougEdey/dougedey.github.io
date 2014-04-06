@@ -54,20 +54,20 @@ You will see a prompt to select the relevant PID that you want to acivate the ma
 
 If there's a profile already active, you can override it!
 
-![Elsinore on](https://github.com/DougEdey/dougedey.github.io/tree/master/assets/images/elsinore%20on.png)
-![Elsinore Support](https://github.com/DougEdey/dougedey.github.io/tree/master/assets/images/SB_mash.png)
-![Elsinore Sent](https://github.com/DougEdey/dougedey.github.io/tree/master/assets/images/to_elsinore.png)
+![Elsinore on](https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_profiles/elsinore_on.png)
+![Elsinore Support](https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_profiles/SB_Mash.png)
+![Elsinore Sent](https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_profiles/to_elsinore.png)
 
 ### It's Sent! What next?
 
 In the Web interface, the relevant PID will show a table of the mash steps, by default none are activated.
 
-![Mashstep View](https://github.com/DougEdey/dougedey.github.io/tree/master/assets/images/mashstep_activate.png)
+![Mashstep View](https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_profiles/mashstep_activate.png)
 
 So you'll need to click the "Activate" button when you're setup to go. Then press "Auto" on the PID to activate the element.
 
-![Mashstep Active](https://github.com/DougEdey/dougedey.github.io/tree/master/assets/images/mashstep_enabled.png)
+![Mashstep Active](https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_profiles/mashstep_enabled.png)
 
 When the PID temperature is within the target range, +/-2F by default, the timer will start
 
-![Mashstep Timer](https://github.com/DougEdey/dougedey.github.io/tree/master/assets/images/timersmash.png)
+![Mashstep Timer](https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_profiles/timersmash.png)
