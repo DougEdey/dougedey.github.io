@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Mash Profiles</title>
+    
+    <meta name="author" content="Doug Edey">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/css/1.4.0/bootstrap.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="/">Dougs Doings</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Mash Profiles <small>StrangeBrew and Mash Profiles</small></h1>
+</div>
+
+<div class="row">
+  <div class="span14">
+    <p>So I have spent a week getting <strong>Mash Profiles</strong> working in <a href="http://dougedey.github.io/SB_Elsinore_Server/">StrangeBrew Elsinore</a>, it’s at a point now where I feel comfortable allowing other people to <strong>TEST</strong> this functionality (I don’t use it in my setup personally)</p>
+
+<h1 id="this_is_a_test_feature">This is a TEST Feature</h1>
+
+<p>If you see an issue, please raise a bug with as much information as possible. One line “This doesn’t work” won’t help me to fix it. Check the logs, this feature has lots of WARNING output (rather than info) until it’s been tested well enough to be part of the main branch.</p>
+
+<h3 id="what_is_a_mash_profile">What is a Mash Profile?</h3>
+
+<p>I know I’m probably not using the right phrase, but I figured it was catchy enough to refer to, and it gets the intent of the feature across.</p>
+
+<p>A Mash Profile is a series of Mash Steps, many Mash Steps equal one Mash Profile.</p>
+
+<p>In Elsinore, you can have a mash profile for each PID you have setup.</p>
+
+<h3 id="ok_what_does_a_mash_profile_allow_me_to_do">OK, what does a Mash Profile allow me to do?</h3>
+
+<p>The profile allows you to setup mash steps in advance, with target start temperatures, duration, and names, Elsinore then has a background thread for each Mash Profile that has been setup.</p>
+
+<p>What Elsinore does is:</p>
+
+<ol>
+<li>Checks to see if there’s an active mash step, if there’s not it doesn’t do anything, simple.A</li>
+
+<li>Sets the target PID Temperature to that of the mash profile</li>
+
+<li>Checks to see if the current temperature on the profiles PID to see if it’s in range of the target profile (currently this is hard set to +/-2F, but this is next on my list to make flexible)</li>
+
+<li>If it’s within the target range, it will then activate the mash step and set the start time, whilst at the same time setting the target end time</li>
+
+<li>If the end time has been hit, or surpassed, the actual end time is recorded (up to 10s difference)</li>
+
+<li>If there’s another mash step, this becomes the active step</li>
+
+<li>Goto (1)</li>
+</ol>
+
+<h3 id="sweet_its_like_a_set_and_forget_thing">Sweet, it’s like a set and forget thing!</h3>
+
+<p><strong>No</strong>, seriously it’s not, you need to monitor everything closesly, as I said at the beginning, I don’t use this feature (at the moment) so it’s difficult for me to detect any issues.</p>
+
+<p>Also, whilst Elsinore does set the Target Temperature, it does NOT activate the element by itself. If a PID is already on manual, it will not move it to Auto, or Off. I don’t want to active an element when someone hasn’t put their water in, or something isn’t right!</p>
+
+<h3 id="ok_i_get_it_i_think_i_want_to_use_this">OK, I get it, I think I want to use this.</h3>
+
+<p>Cool, I like you already. But this isn’t something you can do with Elsinore by itself.</p>
+
+<p>You’ll need to use <a href="http://dougedey.github.io/StrangeBrewQT/">StrangeBrewQT</a> to use this feature.</p>
+
+<p>When you get StrangeBrewQT, you can build it from source (install QTCreator and hit build, it should work on all platforms), using the <em>elsinore</em>mash_ branch. There’s a post <strong>TO_COME</strong> with links to binary drops for Mac/Windows/Linux as standalone archives. Sorry, I don’t have an automated build system for all of this yet.</p>
+
+<p>When you have your recipe and mash profile setup in StrangeBrewQT, under the tools item there’s a “Send Mash” option under “Tools”, this will attempt to send the mash profile to the Elsinore Server you have setup under Preferences-&gt;Brewer.</p>
+
+<p>You’ll get relevant messages for any issues that StrangeBrew finds when trying to update the mash Profile, and then a message for the profile being sent</p>
+
+<p>You will see a prompt to select the relevant PID that you want to acivate the mash profile for.</p>
+
+<p>If there’s a profile already active, you can override it!</p>
+
+<p><img src="https://github.com/DougEdey/dougedey.github.io/tree/master/assets/images/elsinore%20on.png" alt="Elsinore on" /> <img src="https://github.com/DougEdey/dougedey.github.io/tree/master/assets/images/SB_mash.png" alt="Elsinore Support" /> <img src="assets/images/SB_mash.png" alt="Elsinore Support" /> <img src="https://github.com/DougEdey/dougedey.github.io/tree/master/assets/images/to_elsinore.png" alt="Elsinore Sent" /></p>
+
+<h3 id="its_sent_what_next">It’s Sent! What next?</h3>
+
+<p>In the Web interface, the relevant PID will show a table of the mash steps, by default none are activated.</p>
+
+<p><img src="https://github.com/DougEdey/dougedey.github.io/tree/master/assets/images/mashstep_activate.png" alt="Mashstep View" /></p>
+
+<p>So you’ll need to click the “Activate” button when you’re setup to go. Then press “Auto” on the PID to activate the element.</p>
+
+<p><img src="https://github.com/DougEdey/dougedey.github.io/tree/master/assets/images/mashstep_enabled.png" alt="Mashstep Active" /></p>
+
+<p>When the PID temperature is within the target range, +/-2F by default, the timer will start</p>
+
+<p><img src="https://github.com/DougEdey/dougedey.github.io/tree/master/assets/images/timersmash.png" alt="Mashstep Timer" /></p>
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; Doug Edey 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

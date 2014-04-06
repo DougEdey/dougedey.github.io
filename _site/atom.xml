@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Dougs Doings</title>
+ <link href="http://dougedey.github.io/" rel="self"/>
+ <link href="http://dougedey.github.io"/>
+ <updated>2014-04-05T22:33:44-04:00</updated>
+ <id>http://dougedey.github.io</id>
+ <author>
+   <name>Doug Edey</name>
+   <email>doug.edey+pages@gmail.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>Mash Profiles</title>
+   <link href="http://dougedey.github.io/2014/04/05/Elsinore-Mash-Profiles"/>
+   <updated>2014-04-05T00:00:00-04:00</updated>
+   <id>http://dougedey.github.io/2014/04/05/Elsinore-Mash-Profiles</id>
+   <content type="html">&lt;p&gt;So I have spent a week getting &lt;strong&gt;Mash Profiles&lt;/strong&gt; working in &lt;a href=&quot;http://dougedey.github.io/SB_Elsinore_Server/&quot;&gt;StrangeBrew Elsinore&lt;/a&gt;, it’s at a point now where I feel comfortable allowing other people to &lt;strong&gt;TEST&lt;/strong&gt; this functionality (I don’t use it in my setup personally)&lt;/p&gt;
+
+&lt;h1 id=&quot;this_is_a_test_feature&quot;&gt;This is a TEST Feature&lt;/h1&gt;
+
+&lt;p&gt;If you see an issue, please raise a bug with as much information as possible. One line “This doesn’t work” won’t help me to fix it. Check the logs, this feature has lots of WARNING output (rather than info) until it’s been tested well enough to be part of the main branch.&lt;/p&gt;
+
+&lt;h3 id=&quot;what_is_a_mash_profile&quot;&gt;What is a Mash Profile?&lt;/h3&gt;
+
+&lt;p&gt;I know I’m probably not using the right phrase, but I figured it was catchy enough to refer to, and it gets the intent of the feature across.&lt;/p&gt;
+
+&lt;p&gt;A Mash Profile is a series of Mash Steps, many Mash Steps equal one Mash Profile.&lt;/p&gt;
+
+&lt;p&gt;In Elsinore, you can have a mash profile for each PID you have setup.&lt;/p&gt;
+
+&lt;h3 id=&quot;ok_what_does_a_mash_profile_allow_me_to_do&quot;&gt;OK, what does a Mash Profile allow me to do?&lt;/h3&gt;
+
+&lt;p&gt;The profile allows you to setup mash steps in advance, with target start temperatures, duration, and names, Elsinore then has a background thread for each Mash Profile that has been setup.&lt;/p&gt;
+
+&lt;p&gt;What Elsinore does is:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Checks to see if there’s an active mash step, if there’s not it doesn’t do anything, simple.A&lt;/li&gt;
+
+&lt;li&gt;Sets the target PID Temperature to that of the mash profile&lt;/li&gt;
+
+&lt;li&gt;Checks to see if the current temperature on the profiles PID to see if it’s in range of the target profile (currently this is hard set to +/-2F, but this is next on my list to make flexible)&lt;/li&gt;
+
+&lt;li&gt;If it’s within the target range, it will then activate the mash step and set the start time, whilst at the same time setting the target end time&lt;/li&gt;
+
+&lt;li&gt;If the end time has been hit, or surpassed, the actual end time is recorded (up to 10s difference)&lt;/li&gt;
+
+&lt;li&gt;If there’s another mash step, this becomes the active step&lt;/li&gt;
+
+&lt;li&gt;Goto (1)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;sweet_its_like_a_set_and_forget_thing&quot;&gt;Sweet, it’s like a set and forget thing!&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;No&lt;/strong&gt;, seriously it’s not, you need to monitor everything closesly, as I said at the beginning, I don’t use this feature (at the moment) so it’s difficult for me to detect any issues.&lt;/p&gt;
+
+&lt;p&gt;Also, whilst Elsinore does set the Target Temperature, it does NOT activate the element by itself. If a PID is already on manual, it will not move it to Auto, or Off. I don’t want to active an element when someone hasn’t put their water in, or something isn’t right!&lt;/p&gt;
+
+&lt;h3 id=&quot;ok_i_get_it_i_think_i_want_to_use_this&quot;&gt;OK, I get it, I think I want to use this.&lt;/h3&gt;
+
+&lt;p&gt;Cool, I like you already. But this isn’t something you can do with Elsinore by itself.&lt;/p&gt;
+
+&lt;p&gt;You’ll need to use &lt;a href=&quot;http://dougedey.github.io/StrangeBrewQT/&quot;&gt;StrangeBrewQT&lt;/a&gt; to use this feature.&lt;/p&gt;
+
+&lt;p&gt;When you get StrangeBrewQT, you can build it from source (install QTCreator and hit build, it should work on all platforms), using the &lt;em&gt;elsinore&lt;/em&gt;mash_ branch. There’s a post &lt;strong&gt;TO_COME&lt;/strong&gt; with links to binary drops for Mac/Windows/Linux as standalone archives. Sorry, I don’t have an automated build system for all of this yet.&lt;/p&gt;
+
+&lt;p&gt;When you have your recipe and mash profile setup in StrangeBrewQT, under the tools item there’s a “Send Mash” option under “Tools”, this will attempt to send the mash profile to the Elsinore Server you have setup under Preferences-&amp;gt;Brewer.&lt;/p&gt;
+
+&lt;p&gt;You’ll get relevant messages for any issues that StrangeBrew finds when trying to update the mash Profile, and then a message for the profile being sent&lt;/p&gt;
+
+&lt;p&gt;You will see a prompt to select the relevant PID that you want to acivate the mash profile for.&lt;/p&gt;
+
+&lt;p&gt;If there’s a profile already active, you can override it!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/DougEdey/dougedey.github.io/tree/master/assets/images/elsinore%20on.png&quot; alt=&quot;Elsinore on&quot; /&gt; &lt;img src=&quot;https://github.com/DougEdey/dougedey.github.io/tree/master/assets/images/SB_mash.png&quot; alt=&quot;Elsinore Support&quot; /&gt; &lt;img src=&quot;assets/images/SB_mash.png&quot; alt=&quot;Elsinore Support&quot; /&gt; &lt;img src=&quot;https://github.com/DougEdey/dougedey.github.io/tree/master/assets/images/to_elsinore.png&quot; alt=&quot;Elsinore Sent&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;its_sent_what_next&quot;&gt;It’s Sent! What next?&lt;/h3&gt;
+
+&lt;p&gt;In the Web interface, the relevant PID will show a table of the mash steps, by default none are activated.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/DougEdey/dougedey.github.io/tree/master/assets/images/mashstep_activate.png&quot; alt=&quot;Mashstep View&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So you’ll need to click the “Activate” button when you’re setup to go. Then press “Auto” on the PID to activate the element.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/DougEdey/dougedey.github.io/tree/master/assets/images/mashstep_enabled.png&quot; alt=&quot;Mashstep Active&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;When the PID temperature is within the target range, +/-2F by default, the timer will start&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/DougEdey/dougedey.github.io/tree/master/assets/images/timersmash.png&quot; alt=&quot;Mashstep Timer&quot; /&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Raspberry Pi Setup</title>
+   <link href="http://dougedey.github.io/2014/03/22/RaspberryPi-Setup"/>
+   <updated>2014-03-22T00:00:00-04:00</updated>
+   <id>http://dougedey.github.io/2014/03/22/RaspberryPi-Setup</id>
+   <content type="html">&lt;p&gt;The &lt;a href=&quot;http://www.raspberrypi.org/&quot;&gt;RaspberryPi&lt;/a&gt; is a $35 computer which works well as a brewery base&lt;/p&gt;
+
+&lt;h3 id=&quot;example_wiring_diagram&quot;&gt;Example Wiring Diagram&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;It is highly recommended you setup a KILL SWITCH that will terminate the negative and/or the positive to the SSRs. This is a safety feature and allows you to kill the SSRs without going through the UI&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Here is an example circuit (which I currently use) In this example, for RaspberryPi, Pin 4 MUST be reserved for the one wire circuit, and there’s a 4k7 pullup resistor.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.github.com/DougEdey/SB_Elsinore_Server/master/img/rpi_circuit.png&quot; alt=&quot;Circuit Diagram&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In this example, I have two SSRs connected to the GPIO Pin 11 and one connected to GPIO 10 (this is just an example).&lt;/p&gt;
+
+&lt;p&gt;Previous versions of this application used WiringPi pinout, this has changed, if you’re unsure what version you have, the Software will walk you through the setup on first run, and you can remove/change the name of rpibrew.cfg to restart the setup process.&lt;/p&gt;
+
+&lt;h3 id=&quot;gpio_naming&quot;&gt;GPIO Naming&lt;/h3&gt;
+
+&lt;p&gt;The Pinout number is obviously different between RaspberryPi and Beaglebone.&lt;/p&gt;
+
+&lt;p&gt;For RPi pinout: http://elinux.org/RPi_Low-level_peripherals&lt;/p&gt;
+
+&lt;p&gt;RPi numbering is displayed in the setup utility on first startup.&lt;/p&gt;
+
+&lt;p&gt;For RPi, you’ll want to use GPIO[X] where X is the pin number.&lt;/p&gt;
+
+&lt;h3 id=&quot;setup_kernel_modules&quot;&gt;Setup Kernel Modules&lt;/h3&gt;
+
+&lt;p&gt;The RaspberryPi requires some kernel modules to be installed, you may not need these if you use OWFS, I’m unable to test but would like feedback&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+sudo modprobe w1-gpio
+sudo modprobe w1-therm
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you do not use OWFS, you cannot use anything except for temperature probes on the one-wire bus&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Raspberry Pi Basic Setup for StrangeBrew Elsinore</title>
+   <link href="http://dougedey.github.io/2014/03/22/Raspberry-Pi-Basic-Setup"/>
+   <updated>2014-03-22T00:00:00-04:00</updated>
+   <id>http://dougedey.github.io/2014/03/22/Raspberry-Pi-Basic-Setup</id>
+   <content type="html">&lt;p&gt;This is very kindly provided by &lt;a href=&quot;http://www.homebrewtalk.com/f170/raspberry-pi-strangebrew-elsinore-basic-setup-463590/&quot;&gt;HBT User Cank&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;setup_the_operating_system&quot;&gt;Setup the Operating System&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.raspberrypi.org/downloads&quot;&gt;Download and install latest NOOBS&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Install Raspbian Operating system and set it up based on your location.&lt;/p&gt;
+
+&lt;h3 id=&quot;setup_the_hardware&quot;&gt;Setup the Hardware&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.cl.cam.ac.uk/projects/raspberrypi/tutorials/temperature/&quot;&gt;Set up your DS18 probes&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Then run this code in the LXTerminal to automatically load the One-Wire modules on start up&lt;/p&gt;
+
+&lt;p&gt;Open /etc/modules to edit&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo nano /etc/modules&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Add these lines to the bottom of the file /etc/modules&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;w1-gpio
+w1-therm&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then reboot&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo reboot&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;download_elsinore&quot;&gt;Download Elsinore&lt;/h3&gt;
+
+&lt;p&gt;Download the SB_Elsinore_Server from git&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/DougEdey/SB_Elsinore_Server.git ~/BrewServer&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Switch directories&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd ~/BrewServer&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Run Elsinore&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo java -jar Elsinore.jar&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;choosing_the_gpio_pins&quot;&gt;Choosing the GPIO Pins&lt;/h3&gt;
+
+&lt;p&gt;See this &lt;a href=&quot;http://www.homebrewtalk.com/f170/raspberry-pi-strangebrew-elsinore-basic-setup-463590/index3.html#post5986888&quot;&gt;post&lt;/a&gt; to make sure you use the correct GPIO pins for output and you don’t choose one that is in the default HIGH state when the Pi boots up!!!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;It is highly recommended you setup a KILL SWITCH that will terminate the negative and/or the positive to the SSRs. This is a safety feature and allows you to kill the SSRs without going through the UI&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;first_time_setup&quot;&gt;First time setup&lt;/h3&gt;
+
+&lt;p&gt;It will run some lines of code then show a list of your sensors and ask you to:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Select the input, enter &amp;quot;r&amp;quot; to refresh, or use &amp;quot;pump &amp;amp;ltname&amp;amp;gt &amp;amp;ltgpio&amp;amp;gt&amp;quot; to add a pump
+Type &amp;quot;volume&amp;quot; to start volume calibration
+Type &amp;quot;timer &amp;amp;ltname&amp;amp;gt&amp;quot; to add a timer&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://cdn.homebrewtalk.com/attachments/f170/183770d1394036656-raspberry-pi-strangebrew-elsinore-basic-setup-elsinoresetup1.jpg&quot; alt=&quot;Initial Setup&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;some_errors&quot;&gt;Some errors&lt;/h3&gt;
+
+&lt;p&gt;If you see&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;quot;java.net.ConnectException: Connection refused&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This means Elsinore is looking for OWFS (the full stacktrace will have OWFS in it) and OWFS isn’t enabled on your system. There was a bug that caused this after restarting Elsinore. This has been &lt;a href=&quot;https://github.com/DougEdey/SB_Elsinore_Server/commit/443ad3b69d6100db73b2afe9af37d749e3b4a860&quot;&gt;fixed&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you get an error at this point saying it can’t see your sensor check out this &lt;a href=&quot;http://www.homebrewtalk.com/f170/raspberry-pi-strangebrew-elsinore-basic-setup-463590/#post5969791&quot;&gt;post&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;It might ask you about switching to OWFS. Say No.&lt;/p&gt;
+
+&lt;h3 id=&quot;setting_up_the_system&quot;&gt;Setting up the System&lt;/h3&gt;
+
+&lt;p&gt;At this point enter the number of the sensor you want to set up and hit enter. (I only had one so I entered “1” and hit enter. It will ask you to name it. (I named mine “HLT”) Then it ask you what GPIO output the SSR is hooked up to so it knows which pin to turn on and off based on the Temperature reading or your sensor. I used “GPIO27” which is pin 13 If you just want a temperature reading, say for mash tun or cooled wort, leave it blank and hit enter. I then typed&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;timer Mash
+timer Boil
+pump Pump1 GPIO22
+
+quit&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://cdn.homebrewtalk.com/attachments/f170/183771d1394036656-raspberry-pi-strangebrew-elsinore-basic-setup-elsinoresetup2.jpg&quot; alt=&quot;Setup an output&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It will tell you:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Updating config file, please check it in elsinore.cfg.new
+Config file updated. Please copy it from rpibrew.cfg.new to rpibrew.cfg to use the data
+You may need to do this as root
+Saving HLT with probe 28-00000XXXXXX
+Creating element of general
+Creating on configDoc base&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;copying_the_config_file&quot;&gt;Copying the config file&lt;/h3&gt;
+
+&lt;p&gt;If it didn’t create this last file, type this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cp elsinore.cfg.new elsinore.cfg&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;running_and_using_elsinore&quot;&gt;Running and using Elsinore&lt;/h3&gt;
+
+&lt;p&gt;Then run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo java -jar Elsinore.jar&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and in a web browser go to the Raspberry Pi IP address&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;192.168.1.XX:8080/controller&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You should see: &lt;img src=&quot;http://cdn.homebrewtalk.com/attachments/f170/183772d1394036656-raspberry-pi-strangebrew-elsinore-basic-setup-elsinore3.jpg&quot; alt=&quot;Web Interface&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;stopping_elsinore&quot;&gt;Stopping elsinore&lt;/h3&gt;
+
+&lt;p&gt;Stops the application&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Ctrl-C&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The last photo is of a breadboard that I have leds hooked to my gpio output pins for the pump(green led) and the HLT ssr(white led) when I turn the pump on the green light comes on, when I send a command for the HLT it turns the white led on based on duty cycle. Pretty sweet!!!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://cdn.homebrewtalk.com/attachments/f170/183773d1394036656-raspberry-pi-strangebrew-elsinore-basic-setup-img_4392-1-.jpg&quot; alt=&quot;Breadboard&quot; /&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>BeagleBone Black Setup</title>
+   <link href="http://dougedey.github.io/2014/03/22/BeagleBoneBlack-Setup"/>
+   <updated>2014-03-22T00:00:00-04:00</updated>
+   <id>http://dougedey.github.io/2014/03/22/BeagleBoneBlack-Setup</id>
+   <content type="html">&lt;p&gt;The &lt;a href=&quot;http://beagleboard.org/Products/BeagleBone+Black&quot;&gt;Beaglebone Black&lt;/a&gt; is similar to the Raspberry Pi, but with more GPIO and onboard Analogue in (that has a max of 1.8V)&lt;/p&gt;
+
+&lt;h1 id=&quot;warning&quot;&gt;WARNING&lt;/h1&gt;
+
+&lt;p&gt;&lt;strong&gt;It is highly recommended you setup a KILL SWITCH that will terminate the negative and/or the positive to the SSRs. This is a safety feature and allows you to kill the SSRs without going through the UI&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;launching&quot;&gt;Launching&lt;/h3&gt;
+
+&lt;p&gt;You &lt;em&gt;must&lt;/em&gt; set the “Gpio_definitions” property on launch&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;java -Dgpio_definitions=extras/beaglebone.json -jar Elsinore.jar&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Otherwise the system will error&lt;/p&gt;
+
+&lt;h3 id=&quot;gpio_naming&quot;&gt;GPIO Naming&lt;/h3&gt;
+
+&lt;p&gt;The Pinout number is different between RaspberryPi and Beaglebone.&lt;/p&gt;
+
+&lt;p&gt;For Beagleboard Black Pinout: http://elinux.org/BeagleBone#P9_and_P8_-_Each_2x23_pins&lt;/p&gt;
+
+&lt;p&gt;BeagleboardBlack has multiple banks, for example GPIO2_2, this translates to physical pin 66, banks are separated by 32 outputs per bank.&lt;/p&gt;
+
+&lt;h3 id=&quot;overlays&quot;&gt;Overlays&lt;/h3&gt;
+
+&lt;p&gt;For beagleboard to get OneWire support, and GPIO control, you need to install a Device Tree Overlay file. I have added these under the support directory:&lt;/p&gt;
+
+&lt;p&gt;To compile the overlay:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo dtc -O dtb -o /lib/firmware/w1-00A0.dtbo -b 0 -@ w1-00A0.dtbo&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Or copy the w1-00A0.dtbo in the support directory to /lib/firmware (as root), the above command copies the file for you.&lt;/p&gt;
+
+&lt;p&gt;Login as root (such as “sudo su”) and run&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;echo w1 &amp;gt; /sys/devices/bone_capemgr.8/slots&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Note: bone_capemgr.8 may be bone.capemgr.9 depending on your setup&lt;/p&gt;
+
+&lt;p&gt;I have also provided a sample jGPIO created overlay for GPIO0_7 as a pinout (jgpio-00A0.dtbo) which can be used in the same was as above&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo cp extras/jgpio-00A0.dtbo /lib/firmware/&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;echo jgpio &amp;gt; /sys/devices/bone_capemgr.8/slots&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;jgpio&quot;&gt;jGPIO&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://dougedey.github.io/jGPIO/&quot;&gt;jGPIO&lt;/a&gt; is a Java application I made to generate the Device Tree Overlays based on a JSON configuration file. At the time of writing this affects Linux Kernel 3.8 and above. The raspberry Pi doesn’t support Kernel 3.8 yet.&lt;/p&gt;
+
+&lt;h3 id=&quot;creating_a_custom_overlay&quot;&gt;Creating a custom Overlay&lt;/h3&gt;
+
+&lt;p&gt;If you want to create a DTC file for custom GPIO pinout, you can read the instructions in the &lt;a href=&quot;https://github.com/DougEdey/jGPIO&quot;&gt;jGPIO&lt;/a&gt; repository&lt;/p&gt;
+
+&lt;p&gt;But the synopsis is&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;java -cp Elsinore.jar -Dgpio_definition=extras/beaglebone.json jGPIO.DTOTest &amp;lt;List of GPIO pins&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;For example&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;java -cp Elsinore.jar -Dgpio_definition=extras/beaglebone.json jGPIO.DTOTest GPIO0_7&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Will recreate the default GPIO0_7 file as jGPIO-00A0.dto, you will then need to compile this as the same as above but for jgpio&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo dtc -O dtb -o /lib/firmware/jgpio-00A0.dtbo -b 0 -@ jgpio-00A0.dto&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;analogue_inputs&quot;&gt;Analogue inputs&lt;/h3&gt;
+
+&lt;p&gt;There is already a precompiled AIN DTO for the Beaglebone Black, BB-ADC, as above:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;echo BB-ADC &amp;gt; /sys/devices/bone_capemgr.8/slots&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;To Activate them.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>StrangeBrew Elsinore</title>
+   <link href="http://dougedey.github.io/2014/03/21/sb-elsinore"/>
+   <updated>2014-03-21T00:00:00-04:00</updated>
+   <id>http://dougedey.github.io/2014/03/21/sb-elsinore</id>
+   <content type="html">&lt;h1 id=&quot;strangebrew_elsinore_server&quot;&gt;Strangebrew Elsinore Server&lt;/h1&gt;
+
+&lt;p&gt;Java Server for Strangebrew Elsinore&lt;/p&gt;
+
+&lt;p&gt;The purpose of this project is to create a Java application that can run on small systems such as the RaspberryPi and the Beaglebone series&lt;/p&gt;
+
+&lt;p&gt;Since these systems run on Linux, that is a requirement to using this.&lt;/p&gt;
+
+&lt;p&gt;The system is based off the Dallas One Wire protocol for the temperature probes (expanding to analogue inputs too), and Straightforward GPIO outputs for SSR control&lt;/p&gt;
+
+&lt;h1 id=&quot;setup_instructions&quot;&gt;Setup Instructions&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;extras/BeagleboneBlackSetup.md&quot;&gt;Beaglebone Black&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;extras/RaspberryPiSetup.md&quot;&gt;RaspberryPi&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;startup_instructions&quot;&gt;Startup Instructions&lt;/h1&gt;
+
+&lt;p&gt;Clone this repository:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;git clone https://github.com/DougEdey/SB_Elsinore_Server&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Move to the checked out Directory:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;cd SB_Elsinore_Server&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Run:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;java -jar Elsinore.jar [options ]&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;To startup the setup procedure, I am aware that it needs to be improved, if you have any suggestions, please raise a bug Use -help to show the full list of options.&lt;/p&gt;
+
+&lt;p&gt;Then check the config file if you want to, then you can copy the new one to the default name&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;cp rpibrew.cfg.new rpibrew.cfg&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;And rerun Elsinore to get started&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;java -jar Elsinore.jar [options]&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;raspberrypi_or_beagleboard&quot;&gt;RaspberryPi or Beagleboard?&lt;/h1&gt;
+
+&lt;p&gt;The BeagleBoard Black does have a big advantage over the RPi, it has onboard analogue inputs, but these are 1.8V.&lt;/p&gt;
+
+&lt;p&gt;The RaspberryPi works fine with the existing software, the only thing you need to do differently is naming the GPIO Pinouts.&lt;/p&gt;
+
+&lt;h1 id=&quot;pump_control&quot;&gt;Pump Control&lt;/h1&gt;
+
+&lt;p&gt;Elsinore now supports pumps, you’ll need to add a new section called “pumps” and each pump must be on it’s own line in the form &lt;code&gt;name=gpio&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The buttons will be RED when on, and GRAY when off.&lt;/p&gt;
+
+&lt;h1 id=&quot;one_wire__owfs&quot;&gt;One Wire &amp;amp; OWFS&lt;/h1&gt;
+
+&lt;p&gt;One Wire is fantastic (in my opinion) each sensor or device has a full 64 bit address, and you don’t have to worry about the order and you can chain them!&lt;/p&gt;
+
+&lt;p&gt;One Wire devices can be chained, with only one Pullup resistor before the first connection to a device. I currently have 4 Temperature probes on my circuit, and a ADC, connected using XLR jacks.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://owfs.org/&quot;&gt;OWFS&lt;/a&gt; is a much better One Wire Implementation, it is highly recommended to install it, and it is REQUIRED if you use One Wire based Analog inputs (like the DS2450&lt;/p&gt;
+
+&lt;p&gt;Install it using your standard package manager, then you need to set a mountpoint up (I use /mnt/1wire) and set&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;server: w1&lt;/code&gt; in the OWFS configuration File (/etc/owfs.conf by default), you can chose the ports as you want for OWFSHTTP and OWServer, the configuration tool will setup OWFS if it can.&lt;/p&gt;
+
+&lt;p&gt;To manually setup OWFS, use the option -owfs when starting up Elsinore&lt;/p&gt;
+
+&lt;h1 id=&quot;cutoff_temperature&quot;&gt;Cutoff Temperature&lt;/h1&gt;
+
+&lt;p&gt;After the &lt;a href=&quot;http://imgur.com/a/pwQVE&quot;&gt;incident&lt;/a&gt; I decided to add a cutoff temperature, in my case I have a temperature probe on my SSRs, and when they go over a certain temperature I want to kill the server so it doesn’t get badly damaged&lt;/p&gt;
+
+&lt;p&gt;Adding &lt;code&gt;cutoff = &amp;lt;string&amp;gt;&lt;/code&gt; To any of the devices, will kill Elsinore when the temperature for that device goes above it.&lt;/p&gt;
+
+&lt;p&gt;The String is in the form: &lt;code&gt;&amp;lt;number&amp;gt;&amp;lt;scale&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;So in the config file below, I can use 85C as a cutoff temperature and it’ll turn off when it goes above 85C&lt;/p&gt;
+
+&lt;h1 id=&quot;system_temperature&quot;&gt;System Temperature&lt;/h1&gt;
+
+&lt;p&gt;System can be enabled during setup by entering “system” (no quotes) at the prompt.&lt;/p&gt;
+
+&lt;p&gt;Also, to enable the System Temperature reading, please add&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;system /&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;In the &lt;code&gt;&amp;lt;general&amp;gt;&lt;/code&gt; section of the configuration file.&lt;/p&gt;
+
+&lt;h1 id=&quot;timers&quot;&gt;Timers&lt;/h1&gt;
+
+&lt;p&gt;During setup you can add custom timers, just use:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+timer &amp;lt;name&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;At the command prompt, if you don’t enter a name it will prompt you for one.&lt;/p&gt;
+
+&lt;h1 id=&quot;config_file&quot;&gt;Config File&lt;/h1&gt;
+
+&lt;p&gt;This config file will automatically be parsed and converted to an XML file&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+[general]
+scale = F
+#cosm = COSM API KEY
+#cosm_feed = YOUR COSM FEED
+
+[kettle]
+set_point = 168.0
+duty_cycle = 100.0
+cycle_time = 2.0
+k_param = 41.0
+i_param = 169.0
+d_param = 4.0
+probe = 28-0000032c449f
+gpio = GPIO2_1
+
+
+[mlt]
+set_point = 0.0
+duty_cycle = 0.0
+cycle_time = 2.0
+k_param = 44.0
+i_param = 165.0
+d_param = 4.0
+probe = 28-0000032c506e
+gpio = 
+
+[pumps]
+pump_a = GPIO0_8
+pump_foo = GPIO0_9
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is a sample Setup file, you can see I have two devices setup here, the MLT is a “read only” probe that doesn’t have a GPIO associated. Whereas the Kettle is setup with default PID values, and has a GPIO pinout of GPIO2_1.&lt;/p&gt;
+
+&lt;p&gt;The scale can be changed between C or F to use Celsius or Fahrenheit on the system.&lt;/p&gt;
+
+&lt;h1 id=&quot;control_interface&quot;&gt;Control Interface&lt;/h1&gt;
+
+&lt;p&gt;Visit&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+&amp;lt;ip of your system&amp;gt;:8080/controller
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;to access the webUI, which works on mobiles too:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/j59BcFZ.png&quot; alt=&quot;Browser Layout&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://imgur.com/a/jEIbc&quot;&gt;Album of the UI Progress&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This is an example of the PID control interface, temperature probes are displayed on the right hand side as LCD displays. On the Raspberry Pi you’ll also get the system temperature (this isn’t enabled on Beagleboard yet)&lt;/p&gt;
+
+&lt;p&gt;There is also a Android Application which is not currently in development, search my repositories to check this, but it’s not deprecated yet, I haven’t changed the JSON output from the system so it should continue to work.&lt;/p&gt;
+
+&lt;p&gt;Thanks For reading this, if you have any queries please contact me or file a bug.&lt;/p&gt;</content>
+ </entry>
+ 
+ 
+</feed>

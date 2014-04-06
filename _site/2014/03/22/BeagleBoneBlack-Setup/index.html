@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>BeagleBone Black Setup</title>
+    
+    <meta name="author" content="Doug Edey">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/css/1.4.0/bootstrap.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="/">Dougs Doings</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>BeagleBone Black Setup <small>BBB is lovely</small></h1>
+</div>
+
+<div class="row">
+  <div class="span14">
+    <p>The <a href="http://beagleboard.org/Products/BeagleBone+Black">Beaglebone Black</a> is similar to the Raspberry Pi, but with more GPIO and onboard Analogue in (that has a max of 1.8V)</p>
+
+<h1 id="warning">WARNING</h1>
+
+<p><strong>It is highly recommended you setup a KILL SWITCH that will terminate the negative and/or the positive to the SSRs. This is a safety feature and allows you to kill the SSRs without going through the UI</strong></p>
+
+<h3 id="launching">Launching</h3>
+
+<p>You <em>must</em> set the “Gpio_definitions” property on launch</p>
+
+<p><code>java -Dgpio_definitions=extras/beaglebone.json -jar Elsinore.jar</code></p>
+
+<p>Otherwise the system will error</p>
+
+<h3 id="gpio_naming">GPIO Naming</h3>
+
+<p>The Pinout number is different between RaspberryPi and Beaglebone.</p>
+
+<p>For Beagleboard Black Pinout: http://elinux.org/BeagleBone#P9_and_P8_-_Each_2x23_pins</p>
+
+<p>BeagleboardBlack has multiple banks, for example GPIO2_2, this translates to physical pin 66, banks are separated by 32 outputs per bank.</p>
+
+<h3 id="overlays">Overlays</h3>
+
+<p>For beagleboard to get OneWire support, and GPIO control, you need to install a Device Tree Overlay file. I have added these under the support directory:</p>
+
+<p>To compile the overlay:</p>
+
+<p><code>sudo dtc -O dtb -o /lib/firmware/w1-00A0.dtbo -b 0 -@ w1-00A0.dtbo</code></p>
+
+<p>Or copy the w1-00A0.dtbo in the support directory to /lib/firmware (as root), the above command copies the file for you.</p>
+
+<p>Login as root (such as “sudo su”) and run</p>
+
+<p><code>echo w1 &gt; /sys/devices/bone_capemgr.8/slots</code></p>
+
+<p>Note: bone_capemgr.8 may be bone.capemgr.9 depending on your setup</p>
+
+<p>I have also provided a sample jGPIO created overlay for GPIO0_7 as a pinout (jgpio-00A0.dtbo) which can be used in the same was as above</p>
+
+<p><code>sudo cp extras/jgpio-00A0.dtbo /lib/firmware/</code></p>
+
+<p><code>echo jgpio &gt; /sys/devices/bone_capemgr.8/slots</code></p>
+
+<h4 id="jgpio">jGPIO</h4>
+
+<p><a href="http://dougedey.github.io/jGPIO/">jGPIO</a> is a Java application I made to generate the Device Tree Overlays based on a JSON configuration file. At the time of writing this affects Linux Kernel 3.8 and above. The raspberry Pi doesn’t support Kernel 3.8 yet.</p>
+
+<h3 id="creating_a_custom_overlay">Creating a custom Overlay</h3>
+
+<p>If you want to create a DTC file for custom GPIO pinout, you can read the instructions in the <a href="https://github.com/DougEdey/jGPIO">jGPIO</a> repository</p>
+
+<p>But the synopsis is</p>
+
+<p><code>java -cp Elsinore.jar -Dgpio_definition=extras/beaglebone.json jGPIO.DTOTest &lt;List of GPIO pins&gt;</code></p>
+
+<p>For example</p>
+
+<p><code>java -cp Elsinore.jar -Dgpio_definition=extras/beaglebone.json jGPIO.DTOTest GPIO0_7</code></p>
+
+<p>Will recreate the default GPIO0_7 file as jGPIO-00A0.dto, you will then need to compile this as the same as above but for jgpio</p>
+
+<p><code>sudo dtc -O dtb -o /lib/firmware/jgpio-00A0.dtbo -b 0 -@ jgpio-00A0.dto</code></p>
+
+<h3 id="analogue_inputs">Analogue inputs</h3>
+
+<p>There is already a precompiled AIN DTO for the Beaglebone Black, BB-ADC, as above:</p>
+
+<p><code>echo BB-ADC &gt; /sys/devices/bone_capemgr.8/slots</code></p>
+
+<p>To Activate them.</p>
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; Doug Edey 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

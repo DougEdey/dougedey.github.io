@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Raspberry Pi Setup</title>
+    
+    <meta name="author" content="Doug Edey">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/css/1.4.0/bootstrap.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="/">Dougs Doings</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Raspberry Pi Setup <small>RaspberryPi is fun</small></h1>
+</div>
+
+<div class="row">
+  <div class="span14">
+    <p>The <a href="http://www.raspberrypi.org/">RaspberryPi</a> is a $35 computer which works well as a brewery base</p>
+
+<h3 id="example_wiring_diagram">Example Wiring Diagram</h3>
+
+<p><strong>It is highly recommended you setup a KILL SWITCH that will terminate the negative and/or the positive to the SSRs. This is a safety feature and allows you to kill the SSRs without going through the UI</strong></p>
+
+<p>Here is an example circuit (which I currently use) In this example, for RaspberryPi, Pin 4 MUST be reserved for the one wire circuit, and there’s a 4k7 pullup resistor.</p>
+
+<p><img src="https://raw.github.com/DougEdey/SB_Elsinore_Server/master/img/rpi_circuit.png" alt="Circuit Diagram" /></p>
+
+<p>In this example, I have two SSRs connected to the GPIO Pin 11 and one connected to GPIO 10 (this is just an example).</p>
+
+<p>Previous versions of this application used WiringPi pinout, this has changed, if you’re unsure what version you have, the Software will walk you through the setup on first run, and you can remove/change the name of rpibrew.cfg to restart the setup process.</p>
+
+<h3 id="gpio_naming">GPIO Naming</h3>
+
+<p>The Pinout number is obviously different between RaspberryPi and Beaglebone.</p>
+
+<p>For RPi pinout: http://elinux.org/RPi_Low-level_peripherals</p>
+
+<p>RPi numbering is displayed in the setup utility on first startup.</p>
+
+<p>For RPi, you’ll want to use GPIO[X] where X is the pin number.</p>
+
+<h3 id="setup_kernel_modules">Setup Kernel Modules</h3>
+
+<p>The RaspberryPi requires some kernel modules to be installed, you may not need these if you use OWFS, I’m unable to test but would like feedback</p>
+
+<pre><code>
+sudo modprobe w1-gpio
+sudo modprobe w1-therm
+</code></pre>
+
+<p>If you do not use OWFS, you cannot use anything except for temperature probes on the one-wire bus</p>
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; Doug Edey 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

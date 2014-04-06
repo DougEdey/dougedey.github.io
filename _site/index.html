@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Dougs Pages</title>
+    
+    <meta name="author" content="Doug Edey">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/css/1.4.0/bootstrap.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="/">Dougs Doings</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Dougs Pages <small>About the projects</small></h1>
+</div>
+
+<div class="row">
+  <div class="span14">
+    <h2 id="about_me">About Me</h2>
+
+<p>I’m a Software Developer based in Ottawa, Ontario, I emigrated from the UK in 2010 whilst working for IBM in the JTC.</p>
+
+<p>My core experience comes from working within IBM in the Systems Technology Group performing hardware bringup and testing, before moving to the Software Group with the Java Technology Center. Working in the JTC as a L3 Software Support Developer exposed me to a lot of different usage paradigms, and working with people who write the Java Virtual Machine, and helping to fix issues, both with applications running on the JVM and within the JVM itself. After a few years of working for IBM I decided that I wasn’t feeling fulfilled in my role and moved to a significantly smaller company in Ottawa, 360pi, as the person with lower level knowledge. I find learning about the intricities of products to be extremely fulfilling, this is why I write software, knowing that I understand a product, and it’s inner workings.</p>
+
+<h2 id="strangebrew">StrangeBrew</h2>
+
+<p>I started homebrewing beer in 2011, and I took over control of the <a href="http://dougedey.github.io/StrangeBrew">StrangeBrew</a> recipe tool from Drew Avis. This was because of my desire to push it forward and fix issues within it. I liked it because of the write-once ability of Java (mostly).</p>
+
+<h2 id="strangebrew_elsinore">StrangeBrew Elsinore</h2>
+
+<p>In 2012 I started work on <a href="http://dougedey.github.io/SB_Elsinore_Server/">StrangeBrew Elsinore</a>, as a standlone, open source piece of software that allows control of electric homebrewing setups. With no scalability limits. Running on Beaglebone Black and Raspberry Pi. A HBT User helped me to get some <a href="http://dougedey.github.io/2014/03/22/Raspberry-Pi-Basic-Setup/">Raspberry Pi Documentation</a> written</p>
+
+<h2 id="jgpio">jGPIO</h2>
+
+<p>Whilst writing StrangeBrew Elsinore for the Beaglebone Black, I discovered that Linux Kernel 3.8 used something called Device Tree Overlays, these are not the easiest thing to understand, but it requires custom files to be written and compiled before the GPIO/Pinouts can be used by application. So I wrote a Java based application that generates the files, aswell as provide a support library for Java that allows Java access to pins. It’s not feature complete (I haven’t added PWM yet) but it allows digital and analogue I/O. I wrote my own because I found limitations by other available libraries.</p>
+
+<p>Hence, <a href="http://dougedey.github.io/jGPIO">jGPIO</a> was born.</p>
+
+<h2 id="sb_elsinore_android">SB Elsinore Android</h2>
+
+<p>Whilst writing Strangebrew Elsinore, I decided to play with Android application writing, and I wrote a <a href="http://dougedey.github.io/SB_Elsinore_Android">native application</a> for Android. Whilst I no longer actively maintain this, it provided me with good experience in writing Android Applications.</p>
+
+<p>It currently is behind in that it doesn’t support the new timer model, or pumps, or auxilliary controls. But it’s not infeasible to update the application</p>
+
+<h2 id="strangebrew_qt">StrangeBrew QT</h2>
+
+<p>In 2014, as a result of some work I’d done using QT at work, for making a web renderer, as well as a <a href="http://mirror.linux.org.au/linux.conf.au/2014/Thursday/83-Gtk_to_Qt_-_a_strange_journey_-_Dirk_Hohndel.mp4">talk</a> by Dirk Hondel about porting Subsurface from GTK to QT, made me decide that StrangeBrew needed a native look. Java Swing never looked natural whenever I used it. But QT allows the write once, run many times methodology to work with C++ code. Just requiring some makefile, and compiler specific changes. In the span of a month, I completely rewrote StrangeBrew for QT. Producing <a href="http://dougedey.github.io/StrangeBrewQT/">StrangeBrew QT</a>.</p>
+
+<p>There’s been a few minor issues, but it works on Windows, Mac, and Linux (at the time of writing).</p>
+<ul class='posts'>
+  
+    <li><span>05 Apr 2014</span> &raquo; <a href='/2014/04/05/Elsinore-Mash-Profiles'>Mash Profiles</a></li>
+  
+    <li><span>22 Mar 2014</span> &raquo; <a href='/2014/03/22/RaspberryPi-Setup'>Raspberry Pi Setup</a></li>
+  
+    <li><span>22 Mar 2014</span> &raquo; <a href='/2014/03/22/Raspberry-Pi-Basic-Setup'>Raspberry Pi Basic Setup for StrangeBrew Elsinore</a></li>
+  
+    <li><span>22 Mar 2014</span> &raquo; <a href='/2014/03/22/BeagleBoneBlack-Setup'>BeagleBone Black Setup</a></li>
+  
+    <li><span>21 Mar 2014</span> &raquo; <a href='/2014/03/21/sb-elsinore'>StrangeBrew Elsinore</a></li>
+  
+</ul>
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; Doug Edey 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+
