@@ -110,7 +110,7 @@
   <div class="span14">
     <p>The <a href="http://www.raspberrypi.org/">RaspberryPi</a> is a $35 computer which works well as a brewery base</p>
 
-<h3 id="example_wiring_diagram">Example Wiring Diagram</h3>
+<h3 id="example-wiring-diagram">Example Wiring Diagram</h3>
 
 <p><strong>It is highly recommended you setup a KILL SWITCH that will terminate the negative and/or the positive to the SSRs. This is a safety feature and allows you to kill the SSRs without going through the UI</strong></p>
 
@@ -122,7 +122,7 @@
 
 <p>Previous versions of this application used WiringPi pinout, this has changed, if you’re unsure what version you have, the Software will walk you through the setup on first run, and you can remove/change the name of rpibrew.cfg to restart the setup process.</p>
 
-<h3 id="gpio_naming">GPIO Naming</h3>
+<h3 id="gpio-naming">GPIO Naming</h3>
 
 <p>The Pinout number is obviously different between RaspberryPi and Beaglebone.</p>
 
@@ -130,18 +130,19 @@
 
 <p>RPi numbering is displayed in the setup utility on first startup.</p>
 
-<p>For RPi, you’ll want to use GPIO[X] where X is the pin number.</p>
+<p>For RPi, you’ll want to use GPIO[X] where X is the pin number. </p>
 
-<h3 id="setup_kernel_modules">Setup Kernel Modules</h3>
+<h3 id="setup-kernel-modules">Setup Kernel Modules</h3>
 
-<p>The RaspberryPi requires some kernel modules to be installed, you may not need these if you use OWFS, I’m unable to test but would like feedback</p>
+<p>The RaspberryPi requires some kernel modules to be installed, you may not need these if you use OWFS, I’m unable to test but would like feedback…</p>
 
-<pre><code>
+<p><code>
 sudo modprobe w1-gpio
 sudo modprobe w1-therm
-</code></pre>
+</code>`</p>
 
 <p>If you do not use OWFS, you cannot use anything except for temperature probes on the one-wire bus</p>
+
   </div>
 </div>
 

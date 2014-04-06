@@ -116,31 +116,31 @@
 
 <h3 id="launching">Launching</h3>
 
-<p>You <em>must</em> set the “Gpio_definitions” property on launch</p>
+<p>You <em>must</em> set the “Gpio_definitions” property on launch </p>
 
 <p><code>java -Dgpio_definitions=extras/beaglebone.json -jar Elsinore.jar</code></p>
 
 <p>Otherwise the system will error</p>
 
-<h3 id="gpio_naming">GPIO Naming</h3>
+<h3 id="gpio-naming">GPIO Naming</h3>
 
 <p>The Pinout number is different between RaspberryPi and Beaglebone.</p>
 
 <p>For Beagleboard Black Pinout: http://elinux.org/BeagleBone#P9_and_P8_-_Each_2x23_pins</p>
 
-<p>BeagleboardBlack has multiple banks, for example GPIO2_2, this translates to physical pin 66, banks are separated by 32 outputs per bank.</p>
+<p>BeagleboardBlack has multiple banks, for example GPIO2_2, this translates to physical pin 66, banks are separated by 32 outputs per bank. </p>
 
 <h3 id="overlays">Overlays</h3>
 
 <p>For beagleboard to get OneWire support, and GPIO control, you need to install a Device Tree Overlay file. I have added these under the support directory:</p>
 
-<p>To compile the overlay:</p>
+<p>To compile the overlay: </p>
 
 <p><code>sudo dtc -O dtb -o /lib/firmware/w1-00A0.dtbo -b 0 -@ w1-00A0.dtbo</code></p>
 
 <p>Or copy the w1-00A0.dtbo in the support directory to /lib/firmware (as root), the above command copies the file for you.</p>
 
-<p>Login as root (such as “sudo su”) and run</p>
+<p>Login as root (such as “sudo su”) and run </p>
 
 <p><code>echo w1 &gt; /sys/devices/bone_capemgr.8/slots</code></p>
 
@@ -156,7 +156,7 @@
 
 <p><a href="http://dougedey.github.io/jGPIO/">jGPIO</a> is a Java application I made to generate the Device Tree Overlays based on a JSON configuration file. At the time of writing this affects Linux Kernel 3.8 and above. The raspberry Pi doesn’t support Kernel 3.8 yet.</p>
 
-<h3 id="creating_a_custom_overlay">Creating a custom Overlay</h3>
+<h3 id="creating-a-custom-overlay">Creating a custom Overlay</h3>
 
 <p>If you want to create a DTC file for custom GPIO pinout, you can read the instructions in the <a href="https://github.com/DougEdey/jGPIO">jGPIO</a> repository</p>
 
@@ -166,19 +166,21 @@
 
 <p>For example</p>
 
-<p><code>java -cp Elsinore.jar -Dgpio_definition=extras/beaglebone.json jGPIO.DTOTest GPIO0_7</code></p>
+<p><code>java -cp Elsinore.jar -Dgpio_definition=extras/beaglebone.json jGPIO.DTOTest GPIO0_7</code> </p>
 
 <p>Will recreate the default GPIO0_7 file as jGPIO-00A0.dto, you will then need to compile this as the same as above but for jgpio</p>
 
 <p><code>sudo dtc -O dtb -o /lib/firmware/jgpio-00A0.dtbo -b 0 -@ jgpio-00A0.dto</code></p>
 
-<h3 id="analogue_inputs">Analogue inputs</h3>
+<h3 id="analogue-inputs">Analogue inputs</h3>
 
 <p>There is already a precompiled AIN DTO for the Beaglebone Black, BB-ADC, as above:</p>
 
 <p><code>echo BB-ADC &gt; /sys/devices/bone_capemgr.8/slots</code></p>
 
 <p>To Activate them.</p>
+
+
   </div>
 </div>
 

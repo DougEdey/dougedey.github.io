@@ -108,7 +108,8 @@
 
 <div class="row">
   <div class="span14">
-    <h1 id="strangebrew_elsinore_server">Strangebrew Elsinore Server</h1>
+    
+<h1 id="strangebrew-elsinore-server">Strangebrew Elsinore Server</h1>
 
 <p>Java Server for Strangebrew Elsinore</p>
 
@@ -118,13 +119,12 @@
 
 <p>The system is based off the Dallas One Wire protocol for the temperature probes (expanding to analogue inputs too), and Straightforward GPIO outputs for SSR control</p>
 
-<h1 id="setup_instructions">Setup Instructions</h1>
-
+<h1 id="setup-instructions">Setup Instructions</h1>
 <p><a href="extras/BeagleboneBlackSetup.md">Beaglebone Black</a></p>
 
 <p><a href="extras/RaspberryPiSetup.md">RaspberryPi</a></p>
 
-<h1 id="startup_instructions">Startup Instructions</h1>
+<h1 id="startup-instructions">Startup Instructions</h1>
 
 <p>Clone this repository:</p>
 
@@ -138,7 +138,8 @@
 
 <p><code>java -jar Elsinore.jar [options ]</code></p>
 
-<p>To startup the setup procedure, I am aware that it needs to be improved, if you have any suggestions, please raise a bug Use -help to show the full list of options.</p>
+<p>To startup the setup procedure, I am aware that it needs to be improved, if you have any suggestions, please raise a bug
+Use -help to show the full list of options.</p>
 
 <p>Then check the config file if you want to, then you can copy the new one to the default name</p>
 
@@ -148,43 +149,44 @@
 
 <p><code>java -jar Elsinore.jar [options]</code></p>
 
-<h1 id="raspberrypi_or_beagleboard">RaspberryPi or Beagleboard?</h1>
+<h1 id="raspberrypi-or-beagleboard">RaspberryPi or Beagleboard?</h1>
 
 <p>The BeagleBoard Black does have a big advantage over the RPi, it has onboard analogue inputs, but these are 1.8V.</p>
 
 <p>The RaspberryPi works fine with the existing software, the only thing you need to do differently is naming the GPIO Pinouts.</p>
 
-<h1 id="pump_control">Pump Control</h1>
+<h1 id="pump-control">Pump Control</h1>
 
-<p>Elsinore now supports pumps, you’ll need to add a new section called “pumps” and each pump must be on it’s own line in the form <code>name=gpio</code></p>
+<p>Elsinore now supports pumps, you’ll need to add a new section called “pumps” and each pump must be on it’s own line in the form 
+<code>name=gpio</code></p>
 
-<p>The buttons will be RED when on, and GRAY when off.</p>
+<p>The buttons will be RED when on, and GRAY when off. </p>
 
-<h1 id="one_wire__owfs">One Wire &amp; OWFS</h1>
-
+<h1 id="one-wire--owfs">One Wire &amp; OWFS</h1>
 <p>One Wire is fantastic (in my opinion) each sensor or device has a full 64 bit address, and you don’t have to worry about the order and you can chain them!</p>
 
 <p>One Wire devices can be chained, with only one Pullup resistor before the first connection to a device. I currently have 4 Temperature probes on my circuit, and a ADC, connected using XLR jacks.</p>
 
 <p><a href="http://owfs.org/">OWFS</a> is a much better One Wire Implementation, it is highly recommended to install it, and it is REQUIRED if you use One Wire based Analog inputs (like the DS2450</p>
 
-<p>Install it using your standard package manager, then you need to set a mountpoint up (I use /mnt/1wire) and set</p>
+<p>Install it using your standard package manager, then you need to set a mountpoint up (I use /mnt/1wire) and set </p>
 
 <p><code>server: w1</code> in the OWFS configuration File (/etc/owfs.conf by default), you can chose the ports as you want for OWFSHTTP and OWServer, the configuration tool will setup OWFS if it can.</p>
 
 <p>To manually setup OWFS, use the option -owfs when starting up Elsinore</p>
 
-<h1 id="cutoff_temperature">Cutoff Temperature</h1>
-
+<h1 id="cutoff-temperature">Cutoff Temperature</h1>
 <p>After the <a href="http://imgur.com/a/pwQVE">incident</a> I decided to add a cutoff temperature, in my case I have a temperature probe on my SSRs, and when they go over a certain temperature I want to kill the server so it doesn’t get badly damaged</p>
 
-<p>Adding <code>cutoff = &lt;string&gt;</code> To any of the devices, will kill Elsinore when the temperature for that device goes above it.</p>
+<p>Adding 
+<code>cutoff = &lt;string&gt;</code>
+To any of the devices, will kill Elsinore when the temperature for that device goes above it.</p>
 
 <p>The String is in the form: <code>&lt;number&gt;&lt;scale&gt;</code></p>
 
 <p>So in the config file below, I can use 85C as a cutoff temperature and it’ll turn off when it goes above 85C</p>
 
-<h1 id="system_temperature">System Temperature</h1>
+<h1 id="system-temperature">System Temperature</h1>
 
 <p>System can be enabled during setup by entering “system” (no quotes) at the prompt.</p>
 
@@ -198,23 +200,23 @@
 
 <p>During setup you can add custom timers, just use:</p>
 
-<pre><code>
+<p><code>
 timer &lt;name&gt;
-</code></pre>
+</code></p>
 
 <p>At the command prompt, if you don’t enter a name it will prompt you for one.</p>
 
-<h1 id="config_file">Config File</h1>
+<h1 id="config-file">Config File</h1>
 
-<p>This config file will automatically be parsed and converted to an XML file</p>
+<p>This config file will automatically be parsed and converted to an XML file </p>
 
-<pre><code>
+<p>```
 [general]
 scale = F
 #cosm = COSM API KEY
-#cosm_feed = YOUR COSM FEED
+#cosm_feed = YOUR COSM FEED</p>
 
-[kettle]
+<p>[kettle]
 set_point = 168.0
 duty_cycle = 100.0
 cycle_time = 2.0
@@ -222,10 +224,9 @@ k_param = 41.0
 i_param = 169.0
 d_param = 4.0
 probe = 28-0000032c449f
-gpio = GPIO2_1
+gpio = GPIO2_1</p>
 
-
-[mlt]
+<p>[mlt]
 set_point = 0.0
 duty_cycle = 0.0
 cycle_time = 2.0
@@ -233,26 +234,24 @@ k_param = 44.0
 i_param = 165.0
 d_param = 4.0
 probe = 28-0000032c506e
-gpio = 
+gpio = </p>
 
-[pumps]
+<p>[pumps]
 pump_a = GPIO0_8
 pump_foo = GPIO0_9
-</code></pre>
+```</p>
 
 <p>This is a sample Setup file, you can see I have two devices setup here, the MLT is a “read only” probe that doesn’t have a GPIO associated. Whereas the Kettle is setup with default PID values, and has a GPIO pinout of GPIO2_1.</p>
 
 <p>The scale can be changed between C or F to use Celsius or Fahrenheit on the system.</p>
 
-<h1 id="control_interface">Control Interface</h1>
+<h1 id="control-interface">Control Interface</h1>
 
-<p>Visit</p>
-
-<pre><code>
+<p>Visit 
+<code>
 &lt;ip of your system&gt;:8080/controller
-</code></pre>
-
-<p>to access the webUI, which works on mobiles too:</p>
+</code>
+to access the webUI, which works on mobiles too:</p>
 
 <p><img src="http://i.imgur.com/j59BcFZ.png" alt="Browser Layout" /></p>
 
@@ -263,6 +262,7 @@ pump_foo = GPIO0_9
 <p>There is also a Android Application which is not currently in development, search my repositories to check this, but it’s not deprecated yet, I haven’t changed the JSON output from the system so it should continue to work.</p>
 
 <p>Thanks For reading this, if you have any queries please contact me or file a bug.</p>
+
   </div>
 </div>
 
