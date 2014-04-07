@@ -46,6 +46,8 @@ You'll need to use [StrangeBrewQT](http://dougedey.github.io/StrangeBrewQT/) to 
 
 When you get StrangeBrewQT, you can build it from source (install QTCreator and hit build, it should work on all platforms), using the _elsinore_mash_ branch. There's a post __TO_COME__ with links to binary drops for Mac/Windows/Linux as standalone archives. Sorry, I don't have an automated build system for all of this yet.
 
+Well, I lie a bit, you can get the Ubuntu release from [this directory](https://github.com/DougEdey/StrangeBrewQT/tree/master/drops)
+
 When you have your recipe and mash profile setup in StrangeBrewQT, under the tools item there's a "Send Mash" option under "Tools", this will attempt to send the mash profile to the Elsinore Server you have setup under Preferences->Brewer.
 
 You'll get relevant messages for any issues that StrangeBrew finds when trying to update the mash Profile, and then a message for the profile being sent
