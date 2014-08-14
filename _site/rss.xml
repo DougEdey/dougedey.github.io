@@ -5,10 +5,206 @@
         <description>Dougs Doings - Doug Edey</description>
         <link>http://dougedey.github.io</link>
         <link>http://dougedey.github.io</link>
-        <lastBuildDate>2014-04-05T22:45:19-04:00</lastBuildDate>
-        <pubDate>2014-04-05T22:45:19-04:00</pubDate>
+        <lastBuildDate>2014-08-14T18:21:31-04:00</lastBuildDate>
+        <pubDate>2014-08-14T18:21:31-04:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>Required Hardware</title>
+                <description>&lt;h3 id=&quot;the-list&quot;&gt;The list!&lt;/h3&gt;
+
+&lt;p&gt;To begin with, I must state: Be careful when doing anything, you’re going to be turning electrcity into heat, there will invariably be some bare wires around whilst you’re doing things, these may kill you.&lt;/p&gt;
+
+&lt;p&gt;You want to have a GFCI circuit for anything that’s going to be around water, either with a GFCI breaker on your Fuse Panel, or a GFCI cable for the mains current.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-list-really&quot;&gt;The List! (Really)&lt;/h3&gt;
+
+&lt;p&gt;You can break down the system into various components, the controller itself, the temperature probes, the volume sensors, the heating elements, etc…&lt;/p&gt;
+
+&lt;h2 id=&quot;the-controller&quot;&gt;The Controller&lt;/h2&gt;
+
+&lt;p&gt;You’ll need a &lt;a href=&quot;http://www.raspberrypi.org/&quot;&gt;Raspberry Pi&lt;/a&gt; or a &lt;a href=&quot;http://beagleboard.org/black&quot;&gt;BeagleBone Black&lt;/a&gt; these are both Linux based (by default) systems that have GPIO Output. &lt;/p&gt;
+
+&lt;p&gt;You’ll need to install an Operating System, I personally use Ubuntu, and the guides have been written with Ubuntu in mind. But anything with a One Wire module will work (see the next section).&lt;/p&gt;
+
+&lt;h2 id=&quot;one-wire&quot;&gt;One Wire&lt;/h2&gt;
+
+&lt;p&gt;One wire is a system that allows multiple devices to use a single pin, and they’re 64 bit addressed so you don’t need to put them in any physical order.&lt;/p&gt;
+
+&lt;p&gt;For this you need:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A 4k7 Ohm resistor&lt;/li&gt;
+  &lt;li&gt;DS18B20 (or any compatible temperature sensor)&lt;/li&gt;
+  &lt;li&gt;Some wires&lt;/li&gt;
+  &lt;li&gt;XLR jacks and sockets (optional, but it makes it easier to move around and change)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;(I’ll add more information in the future, but Adafruit have a great &lt;a href=&quot;https://learn.adafruit.com/adafruits-raspberry-pi-lesson-11-ds18b20-temperature-sensing/overview&quot;&gt;guide&lt;/a&gt; for getting started.&lt;/p&gt;
+
+&lt;p&gt;Make sure you get waterproof temperature sensors to go in the kettle, you can use the Electric Breweries guides for this, just replace the PID temperature probes with the One Wire ones.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-kettleselements&quot;&gt;The Kettles/Elements&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://theelectricbrewery.com/&quot;&gt;The Electric Brewery&lt;/a&gt; has incredibly indepth guides for all this stuff, I recommend you use their guides (and their kits if you want to make things easier). But don’t get the PIDs. Elsinore replaces all the PIDs for you&lt;/p&gt;
+
+&lt;h2 id=&quot;special-instructions-for-elsinore&quot;&gt;Special instructions for Elsinore&lt;/h2&gt;
+
+&lt;p&gt;You don’t need LEDs (though they’re a good idea on the hot side so you know when the elements are live).
+You should have physical overrides, such as a switch on the GPIO side of the SSRs, just a switch to open the circuit so they turn off.&lt;/p&gt;
+
+</description>
+                <link>http://dougedey.github.io/2014/08/14/Components</link>
+                <guid>http://dougedey.github.io/2014/08/14/Components</guid>
+                <pubDate>2014-08-14T00:00:00-04:00</pubDate>
+        </item>
+
+        <item>
+                <title>StrangeBrew Elsinore</title>
+                <description>
+&lt;h1 id=&quot;strangebrew-elsinore-server&quot;&gt;Strangebrew Elsinore Server&lt;/h1&gt;
+
+&lt;p&gt;Java Server for Strangebrew Elsinore&lt;/p&gt;
+
+&lt;p&gt;The purpose of this project is to create a Java application that can run on small systems such as the RaspberryPi and the Beaglebone series&lt;/p&gt;
+
+&lt;p&gt;Since these systems run on Linux, that is a requirement to using this.&lt;/p&gt;
+
+&lt;p&gt;The system is based off the Dallas One Wire protocol for the temperature probes (expanding to analogue inputs too), and Straightforward GPIO outputs for SSR control&lt;/p&gt;
+
+&lt;h1 id=&quot;setup-instructions&quot;&gt;Setup Instructions&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;extras/BeagleboneBlackSetup.md&quot;&gt;Beaglebone Black&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;extras/RaspberryPiSetup.md&quot;&gt;RaspberryPi&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The above instructions will tell you how to setup your systems for Elsinore&lt;/p&gt;
+
+&lt;h1 id=&quot;startup-instructions&quot;&gt;Startup Instructions&lt;/h1&gt;
+
+&lt;p&gt;Clone this repository:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;git clone https://github.com/DougEdey/SB_Elsinore_Server&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Move to the checked out Directory:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;cd SB_Elsinore_Server&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Run:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;./launch.sh&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Wait, what happened to the old instructions? Well I found that people weren’t following them well. So I rewrote the UI, you can now setup everything (almost) from the UI.&lt;/p&gt;
+
+&lt;p&gt;If you have a DS2450 (or don’t want to use Analogue inputs for reading the volume, BBB is 1.7V so not very good for reading the analogue inputs. You will see a request for OWFS, please use OWFS if you can, it’s better in general.&lt;/p&gt;
+
+&lt;p&gt;```
+./launch.sh 
+Starting Elsinore as elsinore
+[sudo] password for elsinore: 
+May 17, 2014 8:29:23 PM com.sb.elsinore.LaunchControl main
+INFO: Running Brewery Controller.
+CFG IS NULL
+DOC IS NULL
+Detected a non temp probe.20-00000008dc9e
+Do you want to switch to OWFS? [y/N]
+y
+Creating the OWFS configuration.
+What is the OWFS server host? (Defaults to localhost)&lt;/p&gt;
+
+&lt;p&gt;What is the OWFS server port? (Defaults to 4304)&lt;/p&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+
+&lt;p&gt;Then you can use the web UI.&lt;/p&gt;
+
+&lt;p&gt;The standard view you’ll see at the start is an un-named display, such as:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/61lm1VI.png&quot; alt=&quot;Initial Setup View&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The probe “names” are their addresses, double clicking them allows you to set them up
+* You can set just the name (which will leave it as a temperature probe)
+* A GPIO pin (which will set it up as a PID controller)
+* And if you use a GPIO Pin you can set an Aux pin at the same time, allowing you to use an auxilliary ouput.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/FSAxuYB.png&quot; alt=&quot;Setup Probe&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can also setup the volume reading from the web UI, double clicking on the volume box will show you the input.
+* You can set the Analogue input PIN (for BBB and RPi), but these are normally voltage limited
+* Or you can set the One Wire address (for a DS2450, which is what I use) and the offset for the input which will give you up to 5V.
+* You can set the Volume Unit (this doesn’t matter since there’s no conversion between values at the moment)
+* Adding a volume point will add a new data point to the system. When you have three or more the system will be able to calculate the volume.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/9pYNdQf.png&quot; alt=&quot;Setup Volume&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;raspberrypi-or-beagleboard&quot;&gt;RaspberryPi or Beagleboard?&lt;/h1&gt;
+
+&lt;p&gt;The BeagleBoard Black does have a big advantage over the RPi, it has onboard analogue inputs, but these are 1.8V.&lt;/p&gt;
+
+&lt;p&gt;The RaspberryPi works fine with the existing software, the only thing you need to do differently is naming the GPIO Pinouts.&lt;/p&gt;
+
+&lt;h1 id=&quot;one-wire--owfs&quot;&gt;One Wire &amp;amp; OWFS&lt;/h1&gt;
+&lt;p&gt;One Wire is fantastic (in my opinion) each sensor or device has a full 64 bit address, and you don’t have to worry about the order and you can chain them!&lt;/p&gt;
+
+&lt;p&gt;One Wire devices can be chained, with only one Pullup resistor before the first connection to a device. I currently have 4 Temperature probes on my circuit, and a ADC, connected using XLR jacks.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://owfs.org/&quot;&gt;OWFS&lt;/a&gt; is a much better One Wire Implementation, it is highly recommended to install it, and it is REQUIRED if you use One Wire based Analog inputs (like the DS2450&lt;/p&gt;
+
+&lt;p&gt;Install it using your standard package manager, then you need to set a mountpoint up (I use /mnt/1wire) and set &lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;server: w1&lt;/code&gt; in the OWFS configuration File (/etc/owfs.conf by default), you can chose the ports as you want for OWFSHTTP and OWServer, the configuration tool will setup OWFS if it can.&lt;/p&gt;
+
+&lt;p&gt;To manually setup OWFS, use the option -owfs when starting up Elsinore&lt;/p&gt;
+
+&lt;h1 id=&quot;cutoff-temperature&quot;&gt;Cutoff Temperature&lt;/h1&gt;
+&lt;p&gt;After the &lt;a href=&quot;http://imgur.com/a/pwQVE&quot;&gt;incident&lt;/a&gt; I decided to add a cutoff temperature, in my case I have a temperature probe on my SSRs, and when they go over a certain temperature I want to kill the server so it doesn’t get badly damaged&lt;/p&gt;
+
+&lt;p&gt;This is to come in the updated Web UI setup.&lt;/p&gt;
+
+&lt;h1 id=&quot;system-temperature&quot;&gt;System Temperature&lt;/h1&gt;
+
+&lt;p&gt;System can be enabled during setup by entering “system” (no quotes) at the prompt.&lt;/p&gt;
+
+&lt;p&gt;Also, to enable the System Temperature reading, please add&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;&amp;lt;system /&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;In the &lt;code&gt;&amp;lt;general&amp;gt;&lt;/code&gt; section of the configuration file.&lt;/p&gt;
+
+&lt;h1 id=&quot;timers&quot;&gt;Timers&lt;/h1&gt;
+
+&lt;p&gt;Use the web UI, click on “Add Timer” to create a timer.&lt;/p&gt;
+
+&lt;h1 id=&quot;pump-control&quot;&gt;Pump Control&lt;/h1&gt;
+
+&lt;p&gt;To add a pump, use the “Add Pump” button on the Web Interface&lt;/p&gt;
+
+&lt;h1 id=&quot;config-file&quot;&gt;Config File&lt;/h1&gt;
+
+&lt;p&gt;This is now automatically controlled, you shouldn’t need to do anything to it, except for backing it up.&lt;/p&gt;
+
+&lt;h1 id=&quot;control-interface&quot;&gt;Control Interface&lt;/h1&gt;
+
+&lt;p&gt;Visit 
+&lt;code&gt;
+&amp;lt;ip of your system&amp;gt;:8080/controller
+&lt;/code&gt;
+to access the webUI, which works on mobiles too:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/j59BcFZ.png&quot; alt=&quot;Browser Layout&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://imgur.com/a/jEIbc&quot;&gt;Album of the UI Progress&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This is an example of the PID control interface, temperature probes are displayed on the right hand side as LCD displays. On the Raspberry Pi you’ll also get the system temperature (this isn’t enabled on Beagleboard yet)&lt;/p&gt;
+
+&lt;p&gt;There is also a Android Application which is not currently in development, search my repositories to check this, but it’s not deprecated yet, I haven’t changed the JSON output from the system so it should continue to work.&lt;/p&gt;
+
+&lt;p&gt;Thanks For reading this, if you have any queries please contact me or file a bug.&lt;/p&gt;
+</description>
+                <link>http://dougedey.github.io/2014/05/14/New-Elsinore_Setup</link>
+                <guid>http://dougedey.github.io/2014/05/14/New-Elsinore_Setup</guid>
+                <pubDate>2014-05-14T00:00:00-04:00</pubDate>
+        </item>
 
         <item>
                 <title>Mash Profiles</title>
@@ -55,6 +251,8 @@
 &lt;p&gt;You’ll need to use &lt;a href=&quot;http://dougedey.github.io/StrangeBrewQT/&quot;&gt;StrangeBrewQT&lt;/a&gt; to use this feature.&lt;/p&gt;
 
 &lt;p&gt;When you get StrangeBrewQT, you can build it from source (install QTCreator and hit build, it should work on all platforms), using the &lt;em&gt;elsinore_mash&lt;/em&gt; branch. There’s a post &lt;strong&gt;TO_COME&lt;/strong&gt; with links to binary drops for Mac/Windows/Linux as standalone archives. Sorry, I don’t have an automated build system for all of this yet.&lt;/p&gt;
+
+&lt;p&gt;Well, I lie a bit, you can get the Ubuntu release from &lt;a href=&quot;https://github.com/DougEdey/StrangeBrewQT/tree/master/drops&quot;&gt;this directory&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;When you have your recipe and mash profile setup in StrangeBrewQT, under the tools item there’s a “Send Mash” option under “Tools”, this will attempt to send the mash profile to the Elsinore Server you have setup under Preferences-&amp;gt;Brewer.&lt;/p&gt;
 
