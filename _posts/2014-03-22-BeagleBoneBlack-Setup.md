@@ -35,7 +35,7 @@ For beagleboard to get OneWire support, and GPIO control, you need to install a 
 
 To compile the overlay: 
 
-``` sudo dtc -O dtb -o /lib/firmware/w1-00A0.dtbo -b 0 -@ w1-00A0.dtbo ```
+``` sudo dtc -O dtb -o /lib/firmware/w1-00A0.dtbo -b 0 -@ w1.dts ```
 
 Or copy the w1-00A0.dtbo in the support directory to /lib/firmware (as root), the above command copies the file for you.
 
