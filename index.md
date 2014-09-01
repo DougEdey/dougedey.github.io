@@ -5,6 +5,12 @@ tagline : "About the projects"
 ---
 {% include JB/setup %}
 
+<ul class="posts">
+  {% for post in site.posts %}
+    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
+
 ## About Me
 I'm a Software Developer based in Ottawa, Ontario, I emigrated from the UK in 2010 whilst working for IBM in the JTC. 
 
@@ -34,12 +40,6 @@ It currently is behind in that it doesn't support the new timer model, or pumps,
 In 2014, as a result of some work I'd done using QT at work, for making a web renderer, as well as a [talk](http://mirror.linux.org.au/linux.conf.au/2014/Thursday/83-Gtk_to_Qt_-_a_strange_journey_-_Dirk_Hohndel.mp4) by Dirk Hondel about porting Subsurface from GTK to QT, made me decide that StrangeBrew needed a native look. Java Swing never looked natural whenever I used it. But QT allows the write once, run many times methodology to work with C++ code. Just requiring some makefile, and compiler specific changes. In the span of a month, I completely rewrote StrangeBrew for QT. Producing [StrangeBrew QT](http://dougedey.github.io/StrangeBrewQT/). 
 
 There's been a few minor issues, but it works on Windows, Mac, and Linux (at the time of writing).
-
-<ul class="posts">
-  {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>
 
 
 
