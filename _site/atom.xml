@@ -4,7 +4,7 @@
  <title>Dougs Doings</title>
  <link href="http://dougedey.github.io/" rel="self"/>
  <link href="http://dougedey.github.io"/>
- <updated>2014-09-01T17:14:18-04:00</updated>
+ <updated>2014-09-01T17:38:45-04:00</updated>
  <id>http://dougedey.github.io</id>
  <author>
    <name>Doug Edey</name>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>Web Based Mash Profiles</title>
-   <link href="http://dougedey.github.io/2014/09/01/Elsinore-Mash-Edits"/>
+   <link href="http://dougedey.github.io/elsinore/mash/instructions/2014/09/01/Elsinore-Mash-Edits"/>
    <updated>2014-09-01T00:00:00-04:00</updated>
-   <id>http://dougedey.github.io/2014/09/01/Elsinore-Mash-Edits</id>
+   <id>http://dougedey.github.io/elsinore/mash/instructions/2014/09/01/Elsinore-Mash-Edits</id>
    <content type="html">&lt;p&gt;So I have spent some time improving &lt;strong&gt;Mash Profiles&lt;/strong&gt; in &lt;a href=&quot;http://dougedey.github.io/SB_Elsinore_Server/&quot;&gt;StrangeBrew Elsinore&lt;/a&gt;, you can now do edits, re-orders, deletes, all from the Web interface. And since &lt;a href=&quot;http://github.com/dougedey/StrangeBrewQT&quot;&gt;StrangeBrew QT&lt;/a&gt; is dead for me now (too much hassle to support multiple platforms), I’ve been integrating support with &lt;a href=&quot;http://github.com/dougedey/StrangeBrew&quot;&gt;StrangeBrew Java&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;this-is-still-a-test-feature&quot;&gt;This is STILL A TEST Feature&lt;/h1&gt;
@@ -93,7 +93,7 @@ The Boxes have text in them to tell you what’s expected from each box.&lt;br /
   &lt;li&gt;When you’re done adding mash steps and you’re happy, you’ll need to activate “Auto” mode for the PID with the mash profile, this is a safety feature. No I will not change it.  &lt;/li&gt;
   &lt;li&gt;When the PID is in Auto mode, press “Activate” on the mash profile table to activate it.  &lt;/li&gt;
   &lt;li&gt;You can lock the UI when you’re done editing, the mash profile will stay visible.&lt;br /&gt;
-&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/unlocked_screen.png&quot; alt=&quot;Elsinore Unlocked&quot; /&gt;  &lt;/li&gt;
+&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/edit_nomash.png&quot; alt=&quot;Elsinore Unlocked&quot; /&gt;  &lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3 id=&quot;its-sent-what-next&quot;&gt;It’s Sent! What next?&lt;/h3&gt;
@@ -114,9 +114,9 @@ The Boxes have text in them to tell you what’s expected from each box.&lt;br /
  
  <entry>
    <title>Required Hardware</title>
-   <link href="http://dougedey.github.io/2014/08/14/Components"/>
+   <link href="http://dougedey.github.io/elsinore/instructions/safety/hardware/instructions/setup/shopping/2014/08/14/Components"/>
    <updated>2014-08-14T00:00:00-04:00</updated>
-   <id>http://dougedey.github.io/2014/08/14/Components</id>
+   <id>http://dougedey.github.io/elsinore/instructions/safety/hardware/instructions/setup/shopping/2014/08/14/Components</id>
    <content type="html">&lt;h3 id=&quot;the-list&quot;&gt;The list!&lt;/h3&gt;
 
 &lt;p&gt;To begin with, I must state: Be careful when doing anything, you’re going to be turning electrcity into heat, there will invariably be some bare wires around whilst you’re doing things, these may kill you.&lt;/p&gt;
@@ -164,9 +164,9 @@ You should have physical overrides, such as a switch on the GPIO side of the SSR
  
  <entry>
    <title>StrangeBrew Elsinore</title>
-   <link href="http://dougedey.github.io/2014/05/14/New-Elsinore_Setup"/>
+   <link href="http://dougedey.github.io/elsinore/setup/instructions/beaglebone/raspberrypi/2014/05/14/New-Elsinore_Setup"/>
    <updated>2014-05-14T00:00:00-04:00</updated>
-   <id>http://dougedey.github.io/2014/05/14/New-Elsinore_Setup</id>
+   <id>http://dougedey.github.io/elsinore/setup/instructions/beaglebone/raspberrypi/2014/05/14/New-Elsinore_Setup</id>
    <content type="html">
 &lt;h1 id=&quot;strangebrew-elsinore-server&quot;&gt;Strangebrew Elsinore Server&lt;/h1&gt;
 
@@ -310,9 +310,9 @@ to access the webUI, which works on mobiles too:&lt;/p&gt;
  
  <entry>
    <title>Mash Profiles</title>
-   <link href="http://dougedey.github.io/2014/04/05/Elsinore-Mash-Profiles"/>
+   <link href="http://dougedey.github.io/strangebrew/elsinore/mash/instructions/strangebrewqt/2014/04/05/Elsinore-Mash-Profiles"/>
    <updated>2014-04-05T00:00:00-04:00</updated>
-   <id>http://dougedey.github.io/2014/04/05/Elsinore-Mash-Profiles</id>
+   <id>http://dougedey.github.io/strangebrew/elsinore/mash/instructions/strangebrewqt/2014/04/05/Elsinore-Mash-Profiles</id>
    <content type="html">&lt;p&gt;So I have spent a week getting &lt;strong&gt;Mash Profiles&lt;/strong&gt; working in &lt;a href=&quot;http://dougedey.github.io/SB_Elsinore_Server/&quot;&gt;StrangeBrew Elsinore&lt;/a&gt;, it’s at a point now where I feel comfortable allowing other people to &lt;strong&gt;TEST&lt;/strong&gt; this functionality (I don’t use it in my setup personally)&lt;/p&gt;
 
 &lt;h1 id=&quot;this-is-a-test-feature&quot;&gt;This is a TEST Feature&lt;/h1&gt;
@@ -389,9 +389,9 @@ to access the webUI, which works on mobiles too:&lt;/p&gt;
  
  <entry>
    <title>Raspberry Pi Setup</title>
-   <link href="http://dougedey.github.io/2014/03/22/RaspberryPi-Setup"/>
+   <link href="http://dougedey.github.io/instructions/elsinore/brewery/raspberrypi/setup/2014/03/22/RaspberryPi-Setup"/>
    <updated>2014-03-22T00:00:00-04:00</updated>
-   <id>http://dougedey.github.io/2014/03/22/RaspberryPi-Setup</id>
+   <id>http://dougedey.github.io/instructions/elsinore/brewery/raspberrypi/setup/2014/03/22/RaspberryPi-Setup</id>
    <content type="html">&lt;p&gt;The &lt;a href=&quot;http://www.raspberrypi.org/&quot;&gt;RaspberryPi&lt;/a&gt; is a $35 computer which works well as a brewery base&lt;/p&gt;
 
 &lt;h3 id=&quot;example-wiring-diagram&quot;&gt;Example Wiring Diagram&lt;/h3&gt;
@@ -431,9 +431,9 @@ sudo modprobe w1-therm
  
  <entry>
    <title>Raspberry Pi Basic Setup for StrangeBrew Elsinore</title>
-   <link href="http://dougedey.github.io/2014/03/22/Raspberry-Pi-Basic-Setup"/>
+   <link href="http://dougedey.github.io/elsinore/brewery/raspberrypi/cank/java/setup/instructions/2014/03/22/Raspberry-Pi-Basic-Setup"/>
    <updated>2014-03-22T00:00:00-04:00</updated>
-   <id>http://dougedey.github.io/2014/03/22/Raspberry-Pi-Basic-Setup</id>
+   <id>http://dougedey.github.io/elsinore/brewery/raspberrypi/cank/java/setup/instructions/2014/03/22/Raspberry-Pi-Basic-Setup</id>
    <content type="html">&lt;p&gt;This is very kindly provided by &lt;a href=&quot;http://www.homebrewtalk.com/f170/raspberry-pi-strangebrew-elsinore-basic-setup-463590/&quot;&gt;HBT User Cank&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;setup-the-operating-system&quot;&gt;Setup the Operating System&lt;/h3&gt;
@@ -576,9 +576,9 @@ Pretty sweet!!!&lt;/p&gt;
  
  <entry>
    <title>BeagleBone Black Setup</title>
-   <link href="http://dougedey.github.io/2014/03/22/BeagleBoneBlack-Setup"/>
+   <link href="http://dougedey.github.io/elsinore/brewery/beaglebone/java/setup/instructions/2014/03/22/BeagleBoneBlack-Setup"/>
    <updated>2014-03-22T00:00:00-04:00</updated>
-   <id>http://dougedey.github.io/2014/03/22/BeagleBoneBlack-Setup</id>
+   <id>http://dougedey.github.io/elsinore/brewery/beaglebone/java/setup/instructions/2014/03/22/BeagleBoneBlack-Setup</id>
    <content type="html">&lt;p&gt;The &lt;a href=&quot;http://beagleboard.org/Products/BeagleBone+Black&quot;&gt;Beaglebone Black&lt;/a&gt; is similar to the Raspberry Pi, but with more GPIO and onboard Analogue in (that has a max of 1.8V)&lt;/p&gt;
 
 &lt;h1 id=&quot;warning&quot;&gt;WARNING&lt;/h1&gt;
@@ -656,9 +656,9 @@ Pretty sweet!!!&lt;/p&gt;
  
  <entry>
    <title>StrangeBrew Elsinore</title>
-   <link href="http://dougedey.github.io/2014/03/21/sb-elsinore"/>
+   <link href="http://dougedey.github.io/elsinore/java/strangebrew/brewery/beer/controller/2014/03/21/sb-elsinore"/>
    <updated>2014-03-21T00:00:00-04:00</updated>
-   <id>http://dougedey.github.io/2014/03/21/sb-elsinore</id>
+   <id>http://dougedey.github.io/elsinore/java/strangebrew/brewery/beer/controller/2014/03/21/sb-elsinore</id>
    <content type="html">
 &lt;h1 id=&quot;strangebrew-elsinore-server&quot;&gt;Strangebrew Elsinore Server&lt;/h1&gt;
 

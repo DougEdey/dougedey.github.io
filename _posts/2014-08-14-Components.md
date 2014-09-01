@@ -2,6 +2,7 @@
 layout: page
 title: "Required Hardware"
 tagline: "Remember: Safety first!"
+categories: elsinore instructions safety hardware instructions setup shopping
 ---
 
 ### The list!

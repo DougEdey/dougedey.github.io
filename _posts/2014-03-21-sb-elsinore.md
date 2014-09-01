@@ -3,6 +3,7 @@ layout: page
 title: StrangeBrew Elsinore
 tagline: "An Opensource Brewery Controller"
 description: ""
+categories: Elsinore java strangebrew brewery beer controller
 ---
 {% include JB/setup %}
 

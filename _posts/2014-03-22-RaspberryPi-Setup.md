@@ -2,6 +2,7 @@
 layout: page
 title: "Raspberry Pi Setup"
 tagline: "RaspberryPi is fun"
+categories: instructions elsinore brewery raspberrypi setup
 ---
 
 The [RaspberryPi](http://www.raspberrypi.org/) is a $35 computer which works well as a brewery base

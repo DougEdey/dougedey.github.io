@@ -2,6 +2,7 @@
 layout: page
 title: "Mash Profiles"
 tagline: "StrangeBrew and Mash Profiles"
+categories: strangebrew elsinore mash instructions strangebrewqt
 ---
 
 So I have spent a week getting __Mash Profiles__ working in [StrangeBrew Elsinore](http://dougedey.github.io/SB_Elsinore_Server/), it's at a point now where I feel comfortable allowing other people to __TEST__ this functionality (I don't use it in my setup personally)

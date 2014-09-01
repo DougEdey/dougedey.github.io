@@ -2,6 +2,7 @@
 layout: page
 title: "BeagleBone Black Setup"
 tagline: "BBB is lovely"
+categories: Elsinore brewery beaglebone java setup instructions
 ---
 
 

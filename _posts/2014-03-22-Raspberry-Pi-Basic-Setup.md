@@ -3,6 +3,7 @@ layout: page
 title: Raspberry Pi Basic Setup for StrangeBrew Elsinore
 tagline: "Thanks to Cank!"
 description: ""
+categories: Elsinore brewery raspberrypi cank java setup instructions
 ---
 
 This is very kindly provided by [HBT User Cank](http://www.homebrewtalk.com/f170/raspberry-pi-strangebrew-elsinore-basic-setup-463590/)

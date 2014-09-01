@@ -5,8 +5,8 @@
         <description>Dougs Doings - Doug Edey</description>
         <link>http://dougedey.github.io</link>
         <link>http://dougedey.github.io</link>
-        <lastBuildDate>2014-09-01T17:14:18-04:00</lastBuildDate>
-        <pubDate>2014-09-01T17:14:18-04:00</pubDate>
+        <lastBuildDate>2014-09-01T17:38:45-04:00</lastBuildDate>
+        <pubDate>2014-09-01T17:38:45-04:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -88,7 +88,7 @@ The Boxes have text in them to tell you what’s expected from each box.&lt;br /
   &lt;li&gt;When you’re done adding mash steps and you’re happy, you’ll need to activate “Auto” mode for the PID with the mash profile, this is a safety feature. No I will not change it.  &lt;/li&gt;
   &lt;li&gt;When the PID is in Auto mode, press “Activate” on the mash profile table to activate it.  &lt;/li&gt;
   &lt;li&gt;You can lock the UI when you’re done editing, the mash profile will stay visible.&lt;br /&gt;
-&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/unlocked_screen.png&quot; alt=&quot;Elsinore Unlocked&quot; /&gt;  &lt;/li&gt;
+&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/edit_nomash.png&quot; alt=&quot;Elsinore Unlocked&quot; /&gt;  &lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3 id=&quot;its-sent-what-next&quot;&gt;It’s Sent! What next?&lt;/h3&gt;
@@ -105,8 +105,8 @@ The Boxes have text in them to tell you what’s expected from each box.&lt;br /
 
 &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_profiles/timersmash.png&quot; alt=&quot;Mashstep Timer&quot; /&gt;&lt;/p&gt;
 </description>
-                <link>http://dougedey.github.io/2014/09/01/Elsinore-Mash-Edits</link>
-                <guid>http://dougedey.github.io/2014/09/01/Elsinore-Mash-Edits</guid>
+                <link>http://dougedey.github.io/elsinore/mash/instructions/2014/09/01/Elsinore-Mash-Edits</link>
+                <guid>http://dougedey.github.io/elsinore/mash/instructions/2014/09/01/Elsinore-Mash-Edits</guid>
                 <pubDate>2014-09-01T00:00:00-04:00</pubDate>
         </item>
 
@@ -155,8 +155,8 @@ The Boxes have text in them to tell you what’s expected from each box.&lt;br /
 You should have physical overrides, such as a switch on the GPIO side of the SSRs, just a switch to open the circuit so they turn off.&lt;/p&gt;
 
 </description>
-                <link>http://dougedey.github.io/2014/08/14/Components</link>
-                <guid>http://dougedey.github.io/2014/08/14/Components</guid>
+                <link>http://dougedey.github.io/elsinore/instructions/safety/hardware/instructions/setup/shopping/2014/08/14/Components</link>
+                <guid>http://dougedey.github.io/elsinore/instructions/safety/hardware/instructions/setup/shopping/2014/08/14/Components</guid>
                 <pubDate>2014-08-14T00:00:00-04:00</pubDate>
         </item>
 
@@ -301,8 +301,8 @@ to access the webUI, which works on mobiles too:&lt;/p&gt;
 
 &lt;p&gt;Thanks For reading this, if you have any queries please contact me or file a bug.&lt;/p&gt;
 </description>
-                <link>http://dougedey.github.io/2014/05/14/New-Elsinore_Setup</link>
-                <guid>http://dougedey.github.io/2014/05/14/New-Elsinore_Setup</guid>
+                <link>http://dougedey.github.io/elsinore/setup/instructions/beaglebone/raspberrypi/2014/05/14/New-Elsinore_Setup</link>
+                <guid>http://dougedey.github.io/elsinore/setup/instructions/beaglebone/raspberrypi/2014/05/14/New-Elsinore_Setup</guid>
                 <pubDate>2014-05-14T00:00:00-04:00</pubDate>
         </item>
 
@@ -380,8 +380,8 @@ to access the webUI, which works on mobiles too:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_profiles/timersmash.png&quot; alt=&quot;Mashstep Timer&quot; /&gt;&lt;/p&gt;
 </description>
-                <link>http://dougedey.github.io/2014/04/05/Elsinore-Mash-Profiles</link>
-                <guid>http://dougedey.github.io/2014/04/05/Elsinore-Mash-Profiles</guid>
+                <link>http://dougedey.github.io/strangebrew/elsinore/mash/instructions/strangebrewqt/2014/04/05/Elsinore-Mash-Profiles</link>
+                <guid>http://dougedey.github.io/strangebrew/elsinore/mash/instructions/strangebrewqt/2014/04/05/Elsinore-Mash-Profiles</guid>
                 <pubDate>2014-04-05T00:00:00-04:00</pubDate>
         </item>
 
@@ -422,8 +422,8 @@ sudo modprobe w1-therm
 
 &lt;p&gt;If you do not use OWFS, you cannot use anything except for temperature probes on the one-wire bus&lt;/p&gt;
 </description>
-                <link>http://dougedey.github.io/2014/03/22/RaspberryPi-Setup</link>
-                <guid>http://dougedey.github.io/2014/03/22/RaspberryPi-Setup</guid>
+                <link>http://dougedey.github.io/instructions/elsinore/brewery/raspberrypi/setup/2014/03/22/RaspberryPi-Setup</link>
+                <guid>http://dougedey.github.io/instructions/elsinore/brewery/raspberrypi/setup/2014/03/22/RaspberryPi-Setup</guid>
                 <pubDate>2014-03-22T00:00:00-04:00</pubDate>
         </item>
 
@@ -567,8 +567,8 @@ Pretty sweet!!!&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://cdn.homebrewtalk.com/attachments/f170/183773d1394036656-raspberry-pi-strangebrew-elsinore-basic-setup-img_4392-1-.jpg&quot; alt=&quot;Breadboard&quot; /&gt;&lt;/p&gt;
 </description>
-                <link>http://dougedey.github.io/2014/03/22/Raspberry-Pi-Basic-Setup</link>
-                <guid>http://dougedey.github.io/2014/03/22/Raspberry-Pi-Basic-Setup</guid>
+                <link>http://dougedey.github.io/elsinore/brewery/raspberrypi/cank/java/setup/instructions/2014/03/22/Raspberry-Pi-Basic-Setup</link>
+                <guid>http://dougedey.github.io/elsinore/brewery/raspberrypi/cank/java/setup/instructions/2014/03/22/Raspberry-Pi-Basic-Setup</guid>
                 <pubDate>2014-03-22T00:00:00-04:00</pubDate>
         </item>
 
@@ -647,8 +647,8 @@ Pretty sweet!!!&lt;/p&gt;
 &lt;p&gt;To Activate them.&lt;/p&gt;
 
 </description>
-                <link>http://dougedey.github.io/2014/03/22/BeagleBoneBlack-Setup</link>
-                <guid>http://dougedey.github.io/2014/03/22/BeagleBoneBlack-Setup</guid>
+                <link>http://dougedey.github.io/elsinore/brewery/beaglebone/java/setup/instructions/2014/03/22/BeagleBoneBlack-Setup</link>
+                <guid>http://dougedey.github.io/elsinore/brewery/beaglebone/java/setup/instructions/2014/03/22/BeagleBoneBlack-Setup</guid>
                 <pubDate>2014-03-22T00:00:00-04:00</pubDate>
         </item>
 
@@ -809,8 +809,8 @@ to access the webUI, which works on mobiles too:&lt;/p&gt;
 
 &lt;p&gt;Thanks For reading this, if you have any queries please contact me or file a bug.&lt;/p&gt;
 </description>
-                <link>http://dougedey.github.io/2014/03/21/sb-elsinore</link>
-                <guid>http://dougedey.github.io/2014/03/21/sb-elsinore</guid>
+                <link>http://dougedey.github.io/elsinore/java/strangebrew/brewery/beer/controller/2014/03/21/sb-elsinore</link>
+                <guid>http://dougedey.github.io/elsinore/java/strangebrew/brewery/beer/controller/2014/03/21/sb-elsinore</guid>
                 <pubDate>2014-03-21T00:00:00-04:00</pubDate>
         </item>
 

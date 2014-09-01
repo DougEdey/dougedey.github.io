@@ -3,6 +3,7 @@ layout: page
 title: StrangeBrew Elsinore
 tagline: "An Opensource Brewery Controller"
 description: ""
+categories: elsinore setup instructions beaglebone raspberrypi
 ---
 {% include JB/setup %}
 

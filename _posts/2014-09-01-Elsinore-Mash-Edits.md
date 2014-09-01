@@ -2,6 +2,7 @@
 layout: page
 title: "Web Based Mash Profiles"
 tagline: "Updated Mash Profiles in the WebUI"
+categories: elsinore mash instructions
 ---
 
 So I have spent some time improving __Mash Profiles__ in [StrangeBrew Elsinore](http://dougedey.github.io/SB_Elsinore_Server/), you can now do edits, re-orders, deletes, all from the Web interface. And since [StrangeBrew QT](http://github.com/dougedey/StrangeBrewQT) is dead for me now (too much hassle to support multiple platforms), I've been integrating support with [StrangeBrew Java](http://github.com/dougedey/StrangeBrew)
