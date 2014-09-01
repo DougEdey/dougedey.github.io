@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>StrangeBrew Elsinore</title>
+    <meta name="description" content="">
+    <meta name="author" content="Doug Edey">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/css/1.4.0/bootstrap.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <a class="brand" href="/">Dougs Doings</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>StrangeBrew Elsinore <small>An Opensource Brewery Controller</small></h1>
+</div>
+
+<div class="row">
+  <div class="span14">
+    
+<h1 id="strangebrew-elsinore-server">Strangebrew Elsinore Server</h1>
+
+<p>Java Server for Strangebrew Elsinore</p>
+
+<p>The purpose of this project is to create a Java application that can run on small systems such as the RaspberryPi and the Beaglebone series</p>
+
+<p>Since these systems run on Linux, that is a requirement to using this.</p>
+
+<p>The system is based off the Dallas One Wire protocol for the temperature probes (expanding to analogue inputs too), and Straightforward GPIO outputs for SSR control</p>
+
+<h1 id="setup-instructions">Setup Instructions</h1>
+<p><a href="extras/BeagleboneBlackSetup.md">Beaglebone Black</a></p>
+
+<p><a href="extras/RaspberryPiSetup.md">RaspberryPi</a></p>
+
+<p>The above instructions will tell you how to setup your systems for Elsinore</p>
+
+<h1 id="startup-instructions">Startup Instructions</h1>
+
+<p>Clone this repository:</p>
+
+<p><code>git clone https://github.com/DougEdey/SB_Elsinore_Server</code></p>
+
+<p>Move to the checked out Directory:</p>
+
+<p><code>cd SB_Elsinore_Server</code></p>
+
+<p>Run:</p>
+
+<p><code>./launch.sh</code></p>
+
+<p>Wait, what happened to the old instructions? Well I found that people weren’t following them well. So I rewrote the UI, you can now setup everything (almost) from the UI.</p>
+
+<p>If you have a DS2450 (or don’t want to use Analogue inputs for reading the volume, BBB is 1.7V so not very good for reading the analogue inputs. You will see a request for OWFS, please use OWFS if you can, it’s better in general.</p>
+
+<p>```
+./launch.sh 
+Starting Elsinore as elsinore
+[sudo] password for elsinore: 
+May 17, 2014 8:29:23 PM com.sb.elsinore.LaunchControl main
+INFO: Running Brewery Controller.
+CFG IS NULL
+DOC IS NULL
+Detected a non temp probe.20-00000008dc9e
+Do you want to switch to OWFS? [y/N]
+y
+Creating the OWFS configuration.
+What is the OWFS server host? (Defaults to localhost)</p>
+
+<p>What is the OWFS server port? (Defaults to 4304)</p>
+
+<p>```</p>
+
+<p>Then you can use the web UI.</p>
+
+<p>The standard view you’ll see at the start is an un-named display, such as:</p>
+
+<p><img src="http://i.imgur.com/61lm1VI.png" alt="Initial Setup View" /></p>
+
+<p>The probe “names” are their addresses, double clicking them allows you to set them up
+* You can set just the name (which will leave it as a temperature probe)
+* A GPIO pin (which will set it up as a PID controller)
+* And if you use a GPIO Pin you can set an Aux pin at the same time, allowing you to use an auxilliary ouput.</p>
+
+<p><img src="http://i.imgur.com/FSAxuYB.png" alt="Setup Probe" /></p>
+
+<p>You can also setup the volume reading from the web UI, double clicking on the volume box will show you the input.
+* You can set the Analogue input PIN (for BBB and RPi), but these are normally voltage limited
+* Or you can set the One Wire address (for a DS2450, which is what I use) and the offset for the input which will give you up to 5V.
+* You can set the Volume Unit (this doesn’t matter since there’s no conversion between values at the moment)
+* Adding a volume point will add a new data point to the system. When you have three or more the system will be able to calculate the volume.</p>
+
+<p><img src="http://i.imgur.com/9pYNdQf.png" alt="Setup Volume" /></p>
+
+<h1 id="raspberrypi-or-beagleboard">RaspberryPi or Beagleboard?</h1>
+
+<p>The BeagleBoard Black does have a big advantage over the RPi, it has onboard analogue inputs, but these are 1.8V.</p>
+
+<p>The RaspberryPi works fine with the existing software, the only thing you need to do differently is naming the GPIO Pinouts.</p>
+
+<h1 id="one-wire--owfs">One Wire &amp; OWFS</h1>
+<p>One Wire is fantastic (in my opinion) each sensor or device has a full 64 bit address, and you don’t have to worry about the order and you can chain them!</p>
+
+<p>One Wire devices can be chained, with only one Pullup resistor before the first connection to a device. I currently have 4 Temperature probes on my circuit, and a ADC, connected using XLR jacks.</p>
+
+<p><a href="http://owfs.org/">OWFS</a> is a much better One Wire Implementation, it is highly recommended to install it, and it is REQUIRED if you use One Wire based Analog inputs (like the DS2450</p>
+
+<p>Install it using your standard package manager, then you need to set a mountpoint up (I use /mnt/1wire) and set </p>
+
+<p><code>server: w1</code> in the OWFS configuration File (/etc/owfs.conf by default), you can chose the ports as you want for OWFSHTTP and OWServer, the configuration tool will setup OWFS if it can.</p>
+
+<p>To manually setup OWFS, use the option -owfs when starting up Elsinore</p>
+
+<h1 id="cutoff-temperature">Cutoff Temperature</h1>
+<p>After the <a href="http://imgur.com/a/pwQVE">incident</a> I decided to add a cutoff temperature, in my case I have a temperature probe on my SSRs, and when they go over a certain temperature I want to kill the server so it doesn’t get badly damaged</p>
+
+<p>This is to come in the updated Web UI setup.</p>
+
+<h1 id="system-temperature">System Temperature</h1>
+
+<p>System can be enabled during setup by entering “system” (no quotes) at the prompt.</p>
+
+<p>Also, to enable the System Temperature reading, please add</p>
+
+<p><code>&lt;system /&gt;</code></p>
+
+<p>In the <code>&lt;general&gt;</code> section of the configuration file.</p>
+
+<h1 id="timers">Timers</h1>
+
+<p>Use the web UI, click on “Add Timer” to create a timer.</p>
+
+<h1 id="pump-control">Pump Control</h1>
+
+<p>To add a pump, use the “Add Pump” button on the Web Interface</p>
+
+<h1 id="config-file">Config File</h1>
+
+<p>This is now automatically controlled, you shouldn’t need to do anything to it, except for backing it up.</p>
+
+<h1 id="control-interface">Control Interface</h1>
+
+<p>Visit 
+<code>
+&lt;ip of your system&gt;:8080/controller
+</code>
+to access the webUI, which works on mobiles too:</p>
+
+<p><img src="http://i.imgur.com/j59BcFZ.png" alt="Browser Layout" /></p>
+
+<p><a href="http://imgur.com/a/jEIbc">Album of the UI Progress</a></p>
+
+<p>This is an example of the PID control interface, temperature probes are displayed on the right hand side as LCD displays. On the Raspberry Pi you’ll also get the system temperature (this isn’t enabled on Beagleboard yet)</p>
+
+<p>There is also a Android Application which is not currently in development, search my repositories to check this, but it’s not deprecated yet, I haven’t changed the JSON output from the system so it should continue to work.</p>
+
+<p>Thanks For reading this, if you have any queries please contact me or file a bug.</p>
+
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; Doug Edey 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+

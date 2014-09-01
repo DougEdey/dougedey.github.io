@@ -9,6 +9,7 @@ http://dougedey.github.io/pages.html
 http://dougedey.github.io/archive.html
 http://dougedey.github.io/rss.xml
 
+http://dougedey.github.io/2014/09/01/Elsinore-Mash-Edits
 http://dougedey.github.io/2014/08/14/Components
 http://dougedey.github.io/2014/05/14/New-Elsinore_Setup
 http://dougedey.github.io/2014/04/05/Elsinore-Mash-Profiles

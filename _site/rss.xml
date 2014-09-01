@@ -5,10 +5,106 @@
         <description>Dougs Doings - Doug Edey</description>
         <link>http://dougedey.github.io</link>
         <link>http://dougedey.github.io</link>
-        <lastBuildDate>2014-08-14T18:21:31-04:00</lastBuildDate>
-        <pubDate>2014-08-14T18:21:31-04:00</pubDate>
+        <lastBuildDate>2014-09-01T17:06:48-04:00</lastBuildDate>
+        <pubDate>2014-09-01T17:06:48-04:00</pubDate>
         <ttl>1800</ttl>
 
+
+        <item>
+                <title>Web Based Mash Profiles</title>
+                <description>&lt;p&gt;So I have spent some time improving &lt;strong&gt;Mash Profiles&lt;/strong&gt; in &lt;a href=&quot;http://dougedey.github.io/SB_Elsinore_Server/&quot;&gt;StrangeBrew Elsinore&lt;/a&gt;, you can now do edits, re-orders, deletes, all from the Web interface. And since &lt;a href=&quot;http://github.com/dougedey/StrangeBrewQT&quot;&gt;StrangeBrew QT&lt;/a&gt; is dead for me now (too much hassle to support multiple platforms), I’ve been integrating support with &lt;a href=&quot;http://github.com/dougedey/StrangeBrew&quot;&gt;StrangeBrew Java&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;this-is-still-a-test-feature&quot;&gt;This is STILL A TEST Feature&lt;/h1&gt;
+
+&lt;p&gt;If you see an issue, please raise a bug with as much information as possible. One line “This doesn’t work” won’t help me to fix it. Check the logs, this feature has lots of WARNING output (rather than info) until it’s been tested well enough to be part of the main branch.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-is-a-mash-profile&quot;&gt;What is a Mash Profile?&lt;/h3&gt;
+
+&lt;p&gt;I know I’m probably not using the right phrase, but I figured it was catchy enough to refer to, and it gets the intent of the feature across.&lt;/p&gt;
+
+&lt;p&gt;A Mash Profile is a series of Mash Steps, many Mash Steps equal one Mash Profile.&lt;/p&gt;
+
+&lt;p&gt;In Elsinore, you can have a mash profile for each PID you have setup.&lt;/p&gt;
+
+&lt;h3 id=&quot;ok-what-does-a-mash-profile-allow-me-to-do&quot;&gt;OK, what does a Mash Profile allow me to do?&lt;/h3&gt;
+
+&lt;p&gt;The profile allows you to setup mash steps in advance, with target start temperatures, duration, and names, Elsinore then has a background thread for each Mash Profile that has been setup.&lt;/p&gt;
+
+&lt;p&gt;What Elsinore does is:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Checks to see if there’s an active mash step, if there’s not it doesn’t do anything, simple&lt;/li&gt;
+  &lt;li&gt;Sets the target PID Temperature to that of the mash profile&lt;/li&gt;
+  &lt;li&gt;Checks to see if the current temperature on the profiles PID to see if it’s in range of the target profile (currently this is hard set to +/-2F, but this is next on my list to make flexible)&lt;/li&gt;
+  &lt;li&gt;If it’s within the target range, it will then activate the mash step and set the start time, whilst at the same time setting the target end time&lt;/li&gt;
+  &lt;li&gt;If the end time has been hit, or surpassed, the actual end time is recorded (up to 10s difference)&lt;/li&gt;
+  &lt;li&gt;If there’s another mash step, this becomes the active step&lt;/li&gt;
+  &lt;li&gt;Goto (1)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;sweet-its-like-a-set-and-forget-thing&quot;&gt;Sweet, it’s like a set and forget thing!&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;No&lt;/strong&gt;, seriously it’s not, you need to monitor everything closesly, as I said at the beginning, I don’t use this feature (at the moment) so it’s difficult for me to detect any issues.&lt;/p&gt;
+
+&lt;p&gt;Also, whilst Elsinore does set the Target Temperature, it does NOT activate the element by itself. If a PID is already on manual, it will not move it to Auto, or Off. I don’t want to active an element when someone hasn’t put their water in, or something isn’t right!&lt;/p&gt;
+
+&lt;p&gt;I do not recommend leaving Elsinore to run by itself whilst you go out of the house, there’s lots of things that can go wrong. Propane leaks, SSRs shorting out, fires, bad bad bad things.&lt;/p&gt;
+
+&lt;h3 id=&quot;ok-i-get-it-i-think-i-want-to-use-this&quot;&gt;OK, I get it, I think I want to use this.&lt;/h3&gt;
+
+&lt;p&gt;You no longer need a desktop StrangeBrew application! It does help, you can use StrangeBrew Java, go to Options -&amp;gt; Preferences -&amp;gt; Brewer. And add the Elsinore location, make sure you include the port! For me it’s &lt;code&gt;http://brewery:8080&lt;/code&gt; Then, go to the Mash Panel, setup your mash and click the “Send &amp;gt;” button to send it to Elsinore, as with StrangeBrew QT, you can select which PID you want to use.&lt;/p&gt;
+
+&lt;p&gt;You’ll get relevant messages for any issues that StrangeBrew finds when trying to update the mash Profile, and then a message for the profile being sent&lt;/p&gt;
+
+&lt;p&gt;You will see a prompt to select the relevant PID that you want to acivate the mash profile for. &lt;/p&gt;
+
+&lt;p&gt;If there’s a profile already active, you can override it!&lt;/p&gt;
+
+&lt;p&gt;These images are from StrangeBrew QT, but they are similar/the same for StrangeBrew Java.
+&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_profiles/elsinore_on.png&quot; alt=&quot;Elsinore on&quot; /&gt;
+&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_profiles/SB_Mash.png&quot; alt=&quot;Elsinore Support&quot; /&gt;
+&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_profiles/to_elsinore.png&quot; alt=&quot;Elsinore Sent&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;hold-on-you-said-i-could-do-it-from-the-web-interface&quot;&gt;Hold on, you said I could do it from the Web Interface…&lt;/h3&gt;
+
+&lt;p&gt;Yup, I did, here’s how you do it.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Make sure the UI is unlocked.
+&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/locked_screen.png&quot; alt=&quot;Elsinore Locked&quot; /&gt;
+&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/unlocked_screen.png&quot; alt=&quot;Elsinore Unlocked&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Click the “Add” button for the PID you want to add a mash step to. 
+&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/add_new_mash_step.png&quot; alt=&quot;Add Step&quot; /&gt;
+The Boxes have text in them to tell you what’s expected from each box. “Temp” is the target temperature for the mash step. “Unit”, which defaults to your system temperature Unit. “Method”/”Type” these are used so you know what’s going on (StrangeBrew Java adds them in automatically). “Duration” is how long to hold the temperature for before moving onto the next mash step.&lt;/li&gt;
+  &lt;li&gt;Then hit the gray/grey “Add” button to add the step, repeat as much as you want, then hit “Cancel” to stop adding mash steps.&lt;/li&gt;
+  &lt;li&gt;You can reorder the mash steps by clicking and dragging the steps to reorder them.
+&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/reordering.png&quot; alt=&quot;Add Step&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;You can also delete the mash steps by dragging them to the “delete” button (it’ll change when you drag it)
+&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/delete_mashstep.png&quot; alt=&quot;Add Step&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;When you’re done adding mash steps and you’re happy, you’ll need to activate “Auto” mode for the PID with the mash profile, this is a safety feature. No I will not change it.&lt;/li&gt;
+  &lt;li&gt;When the PID is in Auto mode, press “Activate” on the mash profile table to activate it.&lt;/li&gt;
+  &lt;li&gt;You can lock the UI when you’re done editing, the mash profile will stay visible.
+&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/unlocked_screen.png&quot; alt=&quot;Elsinore Unlocked&quot; /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;its-sent-what-next&quot;&gt;It’s Sent! What next?&lt;/h3&gt;
+
+&lt;p&gt;In the Web interface, the relevant PID will show a table of the mash steps, by default none are activated.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_profiles/mashstep_activate.png&quot; alt=&quot;Mashstep View&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So you’ll need to click the “Activate” button when you’re setup to go. Then press “Auto” on the PID to activate the element.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_profiles/mashstep_enabled.png&quot; alt=&quot;Mashstep Active&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;When the PID temperature is within the target range, +/-2F by default, the timer will start&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_profiles/timersmash.png&quot; alt=&quot;Mashstep Timer&quot; /&gt;&lt;/p&gt;
+</description>
+                <link>http://dougedey.github.io/2014/09/01/Elsinore-Mash-Edits</link>
+                <guid>http://dougedey.github.io/2014/09/01/Elsinore-Mash-Edits</guid>
+                <pubDate>2014-09-01T00:00:00-04:00</pubDate>
+        </item>
 
         <item>
                 <title>Required Hardware</title>
@@ -502,7 +598,7 @@ Pretty sweet!!!&lt;/p&gt;
 
 &lt;p&gt;To compile the overlay: &lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;sudo dtc -O dtb -o /lib/firmware/w1-00A0.dtbo -b 0 -@ w1-00A0.dtbo&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo dtc -O dtb -o /lib/firmware/w1-00A0.dtbo -b 0 -@ w1.dts&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Or copy the w1-00A0.dtbo in the support directory to /lib/firmware (as root), the above command copies the file for you.&lt;/p&gt;
 
