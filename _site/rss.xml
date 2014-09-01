@@ -5,8 +5,8 @@
         <description>Dougs Doings - Doug Edey</description>
         <link>http://dougedey.github.io</link>
         <link>http://dougedey.github.io</link>
-        <lastBuildDate>2014-09-01T17:06:48-04:00</lastBuildDate>
-        <pubDate>2014-09-01T17:06:48-04:00</pubDate>
+        <lastBuildDate>2014-09-01T17:14:18-04:00</lastBuildDate>
+        <pubDate>2014-09-01T17:14:18-04:00</pubDate>
         <ttl>1800</ttl>
 
 
@@ -70,21 +70,25 @@
 &lt;p&gt;Yup, I did, here’s how you do it.&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Make sure the UI is unlocked.
-&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/locked_screen.png&quot; alt=&quot;Elsinore Locked&quot; /&gt;
-&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/unlocked_screen.png&quot; alt=&quot;Elsinore Unlocked&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;Click the “Add” button for the PID you want to add a mash step to. 
-&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/add_new_mash_step.png&quot; alt=&quot;Add Step&quot; /&gt;
-The Boxes have text in them to tell you what’s expected from each box. “Temp” is the target temperature for the mash step. “Unit”, which defaults to your system temperature Unit. “Method”/”Type” these are used so you know what’s going on (StrangeBrew Java adds them in automatically). “Duration” is how long to hold the temperature for before moving onto the next mash step.&lt;/li&gt;
-  &lt;li&gt;Then hit the gray/grey “Add” button to add the step, repeat as much as you want, then hit “Cancel” to stop adding mash steps.&lt;/li&gt;
-  &lt;li&gt;You can reorder the mash steps by clicking and dragging the steps to reorder them.
-&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/reordering.png&quot; alt=&quot;Add Step&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;You can also delete the mash steps by dragging them to the “delete” button (it’ll change when you drag it)
-&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/delete_mashstep.png&quot; alt=&quot;Add Step&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;When you’re done adding mash steps and you’re happy, you’ll need to activate “Auto” mode for the PID with the mash profile, this is a safety feature. No I will not change it.&lt;/li&gt;
-  &lt;li&gt;When the PID is in Auto mode, press “Activate” on the mash profile table to activate it.&lt;/li&gt;
-  &lt;li&gt;You can lock the UI when you’re done editing, the mash profile will stay visible.
-&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/unlocked_screen.png&quot; alt=&quot;Elsinore Unlocked&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Make sure the UI is unlocked.&lt;br /&gt;
+&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/locked_screen.png&quot; alt=&quot;Elsinore Locked&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/edit_nomash.png&quot; alt=&quot;Elsinore Unlocked&quot; /&gt;  &lt;/li&gt;
+  &lt;li&gt;Click the “Add” button for the PID you want to add a mash step to.&lt;br /&gt;
+&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/add_new_mash_step.png&quot; alt=&quot;Add Step&quot; /&gt;&lt;br /&gt;
+The Boxes have text in them to tell you what’s expected from each box.&lt;br /&gt;
+“Temp” is the target temperature for the mash step.&lt;br /&gt;
+“Unit”, which defaults to your system temperature Unit.&lt;br /&gt;
+“Method”/”Type” these are used so you know what’s going on (StrangeBrew Java adds them in automatically).&lt;br /&gt;
+“Duration” is how long to hold the temperature for before moving onto the next mash step.  &lt;/li&gt;
+  &lt;li&gt;Then hit the gray/grey “Add” button to add the step, repeat as much as you want, then hit “Cancel” to stop adding mash steps.  &lt;/li&gt;
+  &lt;li&gt;You can reorder the mash steps by clicking and dragging the steps to reorder them.&lt;br /&gt;
+&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/reordering.png&quot; alt=&quot;Add Step&quot; /&gt;  &lt;/li&gt;
+  &lt;li&gt;You can also delete the mash steps by dragging them to the “delete” button (it’ll change when you drag it)&lt;br /&gt;
+&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/delete_mashstep.png&quot; alt=&quot;Add Step&quot; /&gt;  &lt;/li&gt;
+  &lt;li&gt;When you’re done adding mash steps and you’re happy, you’ll need to activate “Auto” mode for the PID with the mash profile, this is a safety feature. No I will not change it.  &lt;/li&gt;
+  &lt;li&gt;When the PID is in Auto mode, press “Activate” on the mash profile table to activate it.  &lt;/li&gt;
+  &lt;li&gt;You can lock the UI when you’re done editing, the mash profile will stay visible.&lt;br /&gt;
+&lt;img src=&quot;https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/unlocked_screen.png&quot; alt=&quot;Elsinore Unlocked&quot; /&gt;  &lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3 id=&quot;its-sent-what-next&quot;&gt;It’s Sent! What next?&lt;/h3&gt;

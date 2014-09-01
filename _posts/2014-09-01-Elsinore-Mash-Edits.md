@@ -59,21 +59,25 @@ These images are from StrangeBrew QT, but they are similar/the same for StrangeB
 
 Yup, I did, here's how you do it.
 
-1. Make sure the UI is unlocked.
-![Elsinore Locked](https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/locked_screen.png)
-![Elsinore Unlocked](https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/unlocked_screen.png)
-1. Click the "Add" button for the PID you want to add a mash step to. 
-![Add Step](https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/add_new_mash_step.png)
-The Boxes have text in them to tell you what's expected from each box. "Temp" is the target temperature for the mash step. "Unit", which defaults to your system temperature Unit. "Method"/"Type" these are used so you know what's going on (StrangeBrew Java adds them in automatically). "Duration" is how long to hold the temperature for before moving onto the next mash step.
-1. Then hit the gray/grey "Add" button to add the step, repeat as much as you want, then hit "Cancel" to stop adding mash steps.
-1. You can reorder the mash steps by clicking and dragging the steps to reorder them.
-![Add Step](https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/reordering.png)
-1. You can also delete the mash steps by dragging them to the "delete" button (it'll change when you drag it)
-![Add Step](https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/delete_mashstep.png)
-1. When you're done adding mash steps and you're happy, you'll need to activate "Auto" mode for the PID with the mash profile, this is a safety feature. No I will not change it.
-1. When the PID is in Auto mode, press "Activate" on the mash profile table to activate it.
-1. You can lock the UI when you're done editing, the mash profile will stay visible.
-![Elsinore Unlocked](https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/unlocked_screen.png)
+1. Make sure the UI is unlocked.  
+![Elsinore Locked](https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/locked_screen.png)  
+![Elsinore Unlocked](https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/edit_nomash.png)  
+1. Click the "Add" button for the PID you want to add a mash step to.  
+![Add Step](https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/add_new_mash_step.png)  
+The Boxes have text in them to tell you what's expected from each box.  
+"Temp" is the target temperature for the mash step.  
+"Unit", which defaults to your system temperature Unit.  
+"Method"/"Type" these are used so you know what's going on (StrangeBrew Java adds them in automatically).  
+"Duration" is how long to hold the temperature for before moving onto the next mash step.  
+1. Then hit the gray/grey "Add" button to add the step, repeat as much as you want, then hit "Cancel" to stop adding mash steps.  
+1. You can reorder the mash steps by clicking and dragging the steps to reorder them.  
+![Add Step](https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/reordering.png)  
+1. You can also delete the mash steps by dragging them to the "delete" button (it'll change when you drag it)  
+![Add Step](https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/delete_mashstep.png)  
+1. When you're done adding mash steps and you're happy, you'll need to activate "Auto" mode for the PID with the mash profile, this is a safety feature. No I will not change it.  
+1. When the PID is in Auto mode, press "Activate" on the mash profile table to activate it.  
+1. You can lock the UI when you're done editing, the mash profile will stay visible.  
+![Elsinore Unlocked](https://raw.githubusercontent.com/DougEdey/dougedey.github.io/master/assets/images/mash_edit/edit_nomash.png)  
 
 ### It's Sent! What next?
 
