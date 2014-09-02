@@ -4,7 +4,7 @@
  <title>Dougs Doings</title>
  <link href="http://dougedey.github.io/" rel="self"/>
  <link href="http://dougedey.github.io"/>
- <updated>2014-09-01T17:38:45-04:00</updated>
+ <updated>2014-09-01T20:58:00-04:00</updated>
  <id>http://dougedey.github.io</id>
  <author>
    <name>Doug Edey</name>
@@ -669,6 +669,13 @@ Pretty sweet!!!&lt;/p&gt;
 &lt;p&gt;Since these systems run on Linux, that is a requirement to using this.&lt;/p&gt;
 
 &lt;p&gt;The system is based off the Dallas One Wire protocol for the temperature probes (expanding to analogue inputs too), and Straightforward GPIO outputs for SSR control&lt;/p&gt;
+
+&lt;h1 id=&quot;special-thanks&quot;&gt;Special Thanks&lt;/h1&gt;
+&lt;p&gt;There’s a few people, without whom this project wouldn’t have gotten this far.&lt;br /&gt;
+&lt;a href=&quot;https://www.linkedin.com/profile/view?id=5238387&amp;amp;authType=NAME_SEARCH&amp;amp;authToken=yppS&amp;amp;locale=en_US&amp;amp;trk=tyah2&amp;amp;trkInfo=tarId%3A1409619104393%2Ctas%3Abeadman%2Cidx%3A1-1-1&quot;&gt;Barry Beadman&lt;/a&gt; who came up with the original concept and helped me with the electronic parts of Elsinore at the beginning&lt;br /&gt;
+&lt;a href=&quot;https://www.linkedin.com/profile/view?id=8804165&amp;amp;authType=NAME_SEARCH&amp;amp;authToken=rF5W&amp;amp;locale=en_US&amp;amp;srchid=599347131409619316778&amp;amp;srchindex=1&amp;amp;srchtotal=14&amp;amp;trk=vsrp_people_res_name&amp;amp;trkInfo=VSRPsearchId%3A599347131409619316778%2CVSRPtargetId%3A8804165%2CVSRPcmpt%3Aprimary&quot;&gt;Drew Avis&lt;/a&gt; Who allowed me to take over StrangeBrew Java.&lt;br /&gt;
+&lt;a href=&quot;http://www.homebrewtalk.com/members/jangevaa&quot;&gt;Jangeeva&lt;/a&gt; who provided a lot of debugging help with various issues.&lt;br /&gt;
+&lt;a href=&quot;http://www.homebrewtalk.com/f170/new-strangebrew-elsinore-thread-475456&quot;&gt;HomeBrewTalk Forums&lt;/a&gt; for ongoing support over the time of the project.  &lt;/p&gt;
 
 &lt;h1 id=&quot;setup-instructions&quot;&gt;Setup Instructions&lt;/h1&gt;
 &lt;p&gt;&lt;a href=&quot;extras/BeagleboneBlackSetup.md&quot;&gt;Beaglebone Black&lt;/a&gt;&lt;/p&gt;

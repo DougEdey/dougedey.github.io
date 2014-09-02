@@ -19,6 +19,14 @@ Since these systems run on Linux, that is a requirement to using this.
 
 The system is based off the Dallas One Wire protocol for the temperature probes (expanding to analogue inputs too), and Straightforward GPIO outputs for SSR control
 
+Special Thanks
+==============
+There's a few people, without whom this project wouldn't have gotten this far.  
+[Barry Beadman](https://www.linkedin.com/profile/view?id=5238387&authType=NAME_SEARCH&authToken=yppS&locale=en_US&trk=tyah2&trkInfo=tarId%3A1409619104393%2Ctas%3Abeadman%2Cidx%3A1-1-1) who came up with the original concept and helped me with the electronic parts of Elsinore at the beginning  
+[Drew Avis](https://www.linkedin.com/profile/view?id=8804165&authType=NAME_SEARCH&authToken=rF5W&locale=en_US&srchid=599347131409619316778&srchindex=1&srchtotal=14&trk=vsrp_people_res_name&trkInfo=VSRPsearchId%3A599347131409619316778%2CVSRPtargetId%3A8804165%2CVSRPcmpt%3Aprimary) Who allowed me to take over StrangeBrew Java.  
+[Jangeeva](http://www.homebrewtalk.com/members/jangevaa) who provided a lot of debugging help with various issues.  
+[HomeBrewTalk Forums](http://www.homebrewtalk.com/f170/new-strangebrew-elsinore-thread-475456) for ongoing support over the time of the project.  
+
 Setup Instructions
 ====================
 [Beaglebone Black](extras/BeagleboneBlackSetup.md)
