@@ -46,7 +46,8 @@ Wait, what happened to the old instructions? Well I found that people weren't fo
 
 If you have a DS2450 (or don't want to use Analogue inputs for reading the volume, BBB is 1.7V so not very good for reading the analogue inputs. You will see a request for OWFS, please use OWFS if you can, it's better in general.
 
-```
+
+~~~
 ./launch.sh 
 Starting Elsinore as elsinore
 [sudo] password for elsinore: 
@@ -61,23 +62,32 @@ Creating the OWFS configuration.
 What is the OWFS server host? (Defaults to localhost)
 
 What is the OWFS server port? (Defaults to 4304)
-
-```
+~~~
 
 Then you can use the web UI.
+
+Web UI
+======
 
 The standard view you'll see at the start is an un-named display, such as:
 
 ![Initial Setup View](http://i.imgur.com/61lm1VI.png)
 
 The probe "names" are their addresses, double clicking them allows you to set them up
+
 * You can set just the name (which will leave it as a temperature probe)
 * A GPIO pin (which will set it up as a PID controller)
 * And if you use a GPIO Pin you can set an Aux pin at the same time, allowing you to use an auxilliary ouput.
 
 ![Setup Probe](http://i.imgur.com/FSAxuYB.png)
 
+Volume Reading
+==============
+
+Volume reading can be done using any analogue input, I personally used the same hardware as [Brewtroller](https://www.oscsys.com/projects/brewtroller/system-design/volume-measurement) connected to a one wire DS2450, this allows it to connect to the one wire bus.
+
 You can also setup the volume reading from the web UI, double clicking on the volume box will show you the input.
+
 * You can set the Analogue input PIN (for BBB and RPi), but these are normally voltage limited
 * Or you can set the One Wire address (for a DS2450, which is what I use) and the offset for the input which will give you up to 5V.
 * You can set the Volume Unit (this doesn't matter since there's no conversion between values at the moment)

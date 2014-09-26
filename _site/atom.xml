@@ -4,7 +4,7 @@
  <title>Dougs Doings</title>
  <link href="http://dougedey.github.io/" rel="self"/>
  <link href="http://dougedey.github.io"/>
- <updated>2014-09-01T20:58:00-04:00</updated>
+ <updated>2014-09-25T23:23:20-04:00</updated>
  <id>http://dougedey.github.io</id>
  <author>
    <name>Doug Edey</name>
@@ -203,8 +203,7 @@ You should have physical overrides, such as a switch on the GPIO side of the SSR
 
 &lt;p&gt;If you have a DS2450 (or don’t want to use Analogue inputs for reading the volume, BBB is 1.7V so not very good for reading the analogue inputs. You will see a request for OWFS, please use OWFS if you can, it’s better in general.&lt;/p&gt;
 
-&lt;p&gt;```
-./launch.sh 
+&lt;pre&gt;&lt;code&gt;./launch.sh 
 Starting Elsinore as elsinore
 [sudo] password for elsinore: 
 May 17, 2014 8:29:23 PM com.sb.elsinore.LaunchControl main
@@ -215,30 +214,41 @@ Detected a non temp probe.20-00000008dc9e
 Do you want to switch to OWFS? [y/N]
 y
 Creating the OWFS configuration.
-What is the OWFS server host? (Defaults to localhost)&lt;/p&gt;
+What is the OWFS server host? (Defaults to localhost)
 
-&lt;p&gt;What is the OWFS server port? (Defaults to 4304)&lt;/p&gt;
-
-&lt;p&gt;```&lt;/p&gt;
+What is the OWFS server port? (Defaults to 4304)
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Then you can use the web UI.&lt;/p&gt;
+
+&lt;h1 id=&quot;web-ui&quot;&gt;Web UI&lt;/h1&gt;
 
 &lt;p&gt;The standard view you’ll see at the start is an un-named display, such as:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://i.imgur.com/61lm1VI.png&quot; alt=&quot;Initial Setup View&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;The probe “names” are their addresses, double clicking them allows you to set them up
-* You can set just the name (which will leave it as a temperature probe)
-* A GPIO pin (which will set it up as a PID controller)
-* And if you use a GPIO Pin you can set an Aux pin at the same time, allowing you to use an auxilliary ouput.&lt;/p&gt;
+&lt;p&gt;The probe “names” are their addresses, double clicking them allows you to set them up&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You can set just the name (which will leave it as a temperature probe)&lt;/li&gt;
+  &lt;li&gt;A GPIO pin (which will set it up as a PID controller)&lt;/li&gt;
+  &lt;li&gt;And if you use a GPIO Pin you can set an Aux pin at the same time, allowing you to use an auxilliary ouput.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://i.imgur.com/FSAxuYB.png&quot; alt=&quot;Setup Probe&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;You can also setup the volume reading from the web UI, double clicking on the volume box will show you the input.
-* You can set the Analogue input PIN (for BBB and RPi), but these are normally voltage limited
-* Or you can set the One Wire address (for a DS2450, which is what I use) and the offset for the input which will give you up to 5V.
-* You can set the Volume Unit (this doesn’t matter since there’s no conversion between values at the moment)
-* Adding a volume point will add a new data point to the system. When you have three or more the system will be able to calculate the volume.&lt;/p&gt;
+&lt;h1 id=&quot;volume-reading&quot;&gt;Volume Reading&lt;/h1&gt;
+
+&lt;p&gt;Volume reading can be done using any analogue input, I personally used the same hardware as &lt;a href=&quot;https://www.oscsys.com/projects/brewtroller/system-design/volume-measurement&quot;&gt;Brewtroller&lt;/a&gt; connected to a one wire DS2450, this allows it to connect to the one wire bus.&lt;/p&gt;
+
+&lt;p&gt;You can also setup the volume reading from the web UI, double clicking on the volume box will show you the input.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You can set the Analogue input PIN (for BBB and RPi), but these are normally voltage limited&lt;/li&gt;
+  &lt;li&gt;Or you can set the One Wire address (for a DS2450, which is what I use) and the offset for the input which will give you up to 5V.&lt;/li&gt;
+  &lt;li&gt;You can set the Volume Unit (this doesn’t matter since there’s no conversion between values at the moment)&lt;/li&gt;
+  &lt;li&gt;Adding a volume point will add a new data point to the system. When you have three or more the system will be able to calculate the volume.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://i.imgur.com/9pYNdQf.png&quot; alt=&quot;Setup Volume&quot; /&gt;&lt;/p&gt;
 
@@ -672,7 +682,7 @@ Pretty sweet!!!&lt;/p&gt;
 
 &lt;h1 id=&quot;special-thanks&quot;&gt;Special Thanks&lt;/h1&gt;
 &lt;p&gt;There’s a few people, without whom this project wouldn’t have gotten this far.&lt;br /&gt;
-&lt;a href=&quot;https://www.linkedin.com/profile/view?id=5238387&amp;amp;authType=NAME_SEARCH&amp;amp;authToken=yppS&amp;amp;locale=en_US&amp;amp;trk=tyah2&amp;amp;trkInfo=tarId%3A1409619104393%2Ctas%3Abeadman%2Cidx%3A1-1-1&quot;&gt;Barry Beadman&lt;/a&gt; who came up with the original concept and helped me with the electronic parts of Elsinore at the beginning&lt;br /&gt;
+&lt;a href=&quot;https://www.linkedin.com/in/barrybeadman&quot;&gt;Barry Beadman&lt;/a&gt; who came up with the original concept and helped me with the electronic parts of Elsinore at the beginning&lt;br /&gt;
 &lt;a href=&quot;https://www.linkedin.com/profile/view?id=8804165&amp;amp;authType=NAME_SEARCH&amp;amp;authToken=rF5W&amp;amp;locale=en_US&amp;amp;srchid=599347131409619316778&amp;amp;srchindex=1&amp;amp;srchtotal=14&amp;amp;trk=vsrp_people_res_name&amp;amp;trkInfo=VSRPsearchId%3A599347131409619316778%2CVSRPtargetId%3A8804165%2CVSRPcmpt%3Aprimary&quot;&gt;Drew Avis&lt;/a&gt; Who allowed me to take over StrangeBrew Java.&lt;br /&gt;
 &lt;a href=&quot;http://www.homebrewtalk.com/members/jangevaa&quot;&gt;Jangeeva&lt;/a&gt; who provided a lot of debugging help with various issues.&lt;br /&gt;
 &lt;a href=&quot;http://www.homebrewtalk.com/f170/new-strangebrew-elsinore-thread-475456&quot;&gt;HomeBrewTalk Forums&lt;/a&gt; for ongoing support over the time of the project.  &lt;/p&gt;
