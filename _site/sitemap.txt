@@ -9,11 +9,12 @@ http://dougedey.github.io/pages.html
 http://dougedey.github.io/archive.html
 http://dougedey.github.io/rss.xml
 
-http://dougedey.github.io/elsinore/mash/instructions/2014/09/01/Elsinore-Mash-Edits
-http://dougedey.github.io/elsinore/instructions/safety/hardware/instructions/setup/shopping/2014/08/14/Components
-http://dougedey.github.io/elsinore/setup/instructions/beaglebone/raspberrypi/2014/05/14/New-Elsinore_Setup
-http://dougedey.github.io/strangebrew/elsinore/mash/instructions/strangebrewqt/2014/04/05/Elsinore-Mash-Profiles
-http://dougedey.github.io/instructions/elsinore/brewery/raspberrypi/setup/2014/03/22/RaspberryPi-Setup
-http://dougedey.github.io/elsinore/brewery/raspberrypi/cank/java/setup/instructions/2014/03/22/Raspberry-Pi-Basic-Setup
-http://dougedey.github.io/elsinore/brewery/beaglebone/java/setup/instructions/2014/03/22/BeagleBoneBlack-Setup
-http://dougedey.github.io/elsinore/java/strangebrew/brewery/beer/controller/2014/03/21/sb-elsinore
+http://dougedey.github.io/2014/09/01/Elsinore-Mash-Edits
+http://dougedey.github.io/2014/08/27/Setup_Videos
+http://dougedey.github.io/2014/08/14/Components
+http://dougedey.github.io/2014/05/14/New-Elsinore_Setup
+http://dougedey.github.io/2014/04/05/Elsinore-Mash-Profiles
+http://dougedey.github.io/2014/03/22/RaspberryPi-Setup
+http://dougedey.github.io/2014/03/22/Raspberry-Pi-Basic-Setup
+http://dougedey.github.io/2014/03/22/BeagleBoneBlack-Setup
+http://dougedey.github.io/2014/03/21/sb-elsinore
