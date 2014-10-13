@@ -32,7 +32,9 @@ BeagleboardBlack has multiple banks, for example GPIO2_2, this translates to phy
 
 ### Overlays
 
-For beagleboard to get OneWire support, and GPIO control, you need to install a Device Tree Overlay file. I have added these under the support directory:
+For beagleboard to get OneWire support, and GPIO control, you need to install a Device Tree Overlay file. I have added these under the support directory.
+
+The dts file will show you the pin, but it's ```P8.11```
 
 To compile the overlay: 
 
