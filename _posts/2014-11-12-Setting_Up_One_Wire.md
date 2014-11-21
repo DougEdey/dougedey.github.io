@@ -36,6 +36,8 @@ Then reboot
 	sudo reboot
 
 ### Linux Kernel 3.8 (BeagleBone Black)
+
+Do not use a kernel above 3.8 at the moment, you may need to install the 3.8 kernel on a newer image: ``` sudo apt-get install linux-image-3.8.13-bone67 ```
  
 For beagleboard to get OneWire support, and GPIO control, you need to install a Device Tree Overlay file. I have added these under the support directory.
 

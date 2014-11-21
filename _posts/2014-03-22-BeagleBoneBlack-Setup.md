@@ -12,6 +12,8 @@ The [Beaglebone Black](http://beagleboard.org/Products/BeagleBone+Black) is simi
 
 **It is highly recommended you setup a KILL SWITCH that will terminate the negative and/or the positive to the SSRs. This is a safety feature and allows you to kill the SSRs without going through the UI**
 
+Do not use a kernel above 3.8 at the moment, you may need to install the 3.8 kernel on a newer image: ``` sudo apt-get install linux-image-3.8.13-bone67 ```
+
 
 ### Launching
 
