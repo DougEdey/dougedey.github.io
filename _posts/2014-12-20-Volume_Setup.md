@@ -33,7 +33,7 @@ One caveat of this setup is that the continuous formation and release of bubbles
 Hardware
 ===========
 
-If you have a pressure sensor/analog input device that is 1.7v output max, you can get away with using the onboard BeagleBone Black inputs. However, the MPX5010D is 5v output and will break the analog pins.
+If you have a pressure sensor/analog input device that is 1.7v output max, you can get away with using the onboard BeagleBone Black inputs. However, the MPX5010DP is 5v output and will break the analog pins.
 
 For this reason, I strongly recommend using a [DS2450 expansion board](http://pcsensor.com/index.php?_a=product&product_id=43) to provide four analog inputs. I replaced the jack on the end with an XLR jack since all my temperature probes use XLR jacks. You'll need to validate which wire is the 5V, GND, and Data since I'm not 100% certain on the wiring colors being consistent.
 
