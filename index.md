@@ -17,6 +17,8 @@ I'm a Software Developer based in Ottawa, Ontario, I emigrated from the UK in 20
 My core experience comes from working within IBM in the Systems Technology Group performing hardware bringup and testing, before moving to the Software Group with the Java Technology Center.
 Working in the JTC as a L3 Software Support Developer exposed me to a lot of different usage paradigms, and working with people who write the Java Virtual Machine, and helping to fix issues, both with applications running on the JVM and within the JVM itself. 
 After a few years of working for IBM I decided that I wasn't feeling fulfilled in my role and moved to a significantly smaller company in Ottawa, 360pi, as the person with lower level knowledge.
+360pi underwent a restructuring in Summer 2014 to focus on sales, and I moved on to work for Alcatel-Lucent as a SAM Software Designer. In this role I work on the core platform and have gained a large amount of experience with JBoss, networking, and large source code repositories.
+
 I find learning about the intricities of products to be extremely fulfilling, this is why I write software, knowing that I understand a product, and it's inner workings.
 
 ## StrangeBrew
