@@ -86,15 +86,7 @@ Volume Reading
 
 Volume reading can be done using any analogue input, I personally used the same hardware as [Brewtroller](https://www.oscsys.com/projects/brewtroller/system-design/volume-measurement) connected to a one wire DS2450, this allows it to connect to the one wire bus.
 
-You can also setup the volume reading from the web UI, double clicking on the volume box will show you the input.
-
-* You can set the Analogue input PIN (for BBB and RPi), but these are normally voltage limited
-* Or you can set the One Wire address (for a DS2450, which is what I use) and the offset for the input which will give you up to 5V.
-* You can set the Volume Unit (this doesn't matter since there's no conversion between values at the moment)
-* Adding a volume point will add a new data point to the system. When you have three or more the system will be able to calculate the volume.
-
-![Setup Volume](http://i.imgur.com/9pYNdQf.png)
-
+[More indepth documentation](http://dougedey.github.io/2014/12/20/Volume_Setup)
 
 RaspberryPi or Beagleboard?
 =======================
