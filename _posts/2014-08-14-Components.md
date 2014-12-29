@@ -40,6 +40,22 @@ Make sure you get waterproof temperature sensors to go in the kettle, you can us
 
 [The Electric Brewery](http://theelectricbrewery.com/) has incredibly indepth guides for all this stuff, I recommend you use their guides (and their kits if you want to make things easier). But don't get the PIDs. Elsinore replaces all the PIDs for you
 
+## Volume sensing
+
+More detail is in the [Volume Setup Documentation](http://dougedey.github.io/2014/12/20/Volume_Setup/) but to summarise:
+
+ * A (DS2450)[http://pcsensor.com/index.php?_a=product&product_id=43] analog input device
+ * An (MPX5010DP)[https://widgeneering.com/mpx5010dp_freescale_pressure_sensor_with_carrier.html], one per vessel you want to measure
+ * A small aquarium pump (for air)
+ * Some Ts, aquarium hose, air flow valves
+
+## pH Sensor
+
+Only one (pH sensor)[http://dougedey.github.io/2014/12/21/pH_Sensors/] is currently supported by Elsinore, the DFRobots SEN0161
+
+ * A (DS2450)[http://pcsensor.com/index.php?_a=product&product_id=43] analog input device
+ * A (SEN0161)[http://dfrobot.com/wiki/index.php/PH_meter%28SKU:_SEN0161%29]
+ 
 ## Special instructions for Elsinore
 
 You don't need LEDs (though they're a good idea on the hot side so you know when the elements are live).
