@@ -72,10 +72,19 @@ For example
 
 ``` java -cp Elsinore.jar -Dgpio_definition=extras/beaglebone.json jGPIO.DTOTest GPIO0_7 ``` 
 
-Will recreate the default GPIO0_7 file as jGPIO-00A0.dto, you will then need to compile this as the same as above but for jgpio
- 
+Will recreate the default GPIO0_7 file as jgpio-00A0.dto.
+
+``` java -cp Elsinore.jar -Dgpio_definition=extras/beaglebone.json jGPIO.DTOTest GPIO0_7 GPIO0_8 GPIO1_12 ``` 
+
+Will create a Device Tree Overlay with GPIO0_7, GPIO0_8 and GPIO1_12 for export.
+
+You will then need to compile this as the same as above but for jgpio:
+
 ``` sudo dtc -O dtb -o /lib/firmware/jgpio-00A0.dtbo -b 0 -@ jgpio-00A0.dto ```
 
+This places the compiled file in the /lib/firmware directory.
+
+Using ```extra/bbb_setup.sh``` will always export the jgpio overlay to the cape manager, if there is a firmware file for it.
 
 ### Analogue inputs
 
