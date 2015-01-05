@@ -58,3 +58,65 @@ Note: bone_capemgr.8 may be bone.capemgr.9 depending on your setup
 I have provided a file which will install the One Wire (and jGPIO DTO files):
 
 ``` ./extras/w1_setup.sh ```
+
+OWFS
+=========
+
+[OWFS](http://www.owfs.org) is used to only read analogue inputs (DS2450) for pH Sensors and Volume Reading.
+
+The easiest way to set it up once it's installed is to first stop the OWFS Server process, if you have it installed as a service you can use something like:
+
+``` sudo service owserver stop ``` or ``` sudo /etc/init.d/owserver stop ```
+
+Then, replace the ```/etc/owfs.conf``` file with a valid file, I have included mine below as an example.
+
+This sets up the server on port 4304, the ftp server on 2120 and the HTTP server on 2121. 
+
+```
+# Elsinore Basic configuration file for the OWFS suite for Debian GNU/Linux.
+#
+#
+# This is the main OWFS configuration file. You should read the
+# owfs.conf(5) manual page in order to understand the options listed
+# here.
+
+######################## SOURCES ########################
+#
+# With this setup, any client (but owserver) uses owserver on the
+# local machine...
+! server: server = localhost:4304
+#
+# ...and owserver uses the real hardware, by default fake devices
+# This part must be changed on real installation
+#server: FAKE = DS18S20,DS2405
+#
+# USB device: DS9490
+server: w1 = all
+#
+# Serial port: DS9097
+#server: device = /dev/ttyS1
+#
+# owserver tcp address
+#server: server = 192.168.10.1:3131
+#
+# random simulated device
+#server: FAKE = DS18S20,DS2405
+#
+######################### OWFS ##########################
+#
+mountpoint = /mnt/1wire
+allow_other
+#
+####################### OWHTTPD #########################
+
+http: port = 2121
+
+####################### OWFTPD ##########################
+
+ftp: port = 2120
+
+####################### OWSERVER ########################
+
+server: port = localhost:4304
+
+```
