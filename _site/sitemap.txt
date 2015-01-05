@@ -9,8 +9,12 @@ http://dougedey.github.io/pages.html
 http://dougedey.github.io/archive.html
 http://dougedey.github.io/rss.xml
 
+http://dougedey.github.io/2014/12/21/pH_Sensors
+http://dougedey.github.io/2014/12/20/Volume_Setup
+http://dougedey.github.io/2014/11/24/Why_Cant_I_Use_Elsinore_Without_Temperature_Probes
+http://dougedey.github.io/2014/11/12/Setting_Up_One_Wire
+http://dougedey.github.io/2014/09/27/Setup_Videos
 http://dougedey.github.io/2014/09/01/Elsinore-Mash-Edits
-http://dougedey.github.io/2014/08/27/Setup_Videos
 http://dougedey.github.io/2014/08/14/Components
 http://dougedey.github.io/2014/05/14/New-Elsinore_Setup
 http://dougedey.github.io/2014/04/05/Elsinore-Mash-Profiles

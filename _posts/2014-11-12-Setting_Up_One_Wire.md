@@ -72,7 +72,7 @@ Then, replace the ```/etc/owfs.conf``` file with a valid file, I have included m
 
 This sets up the server on port 4304, the ftp server on 2120 and the HTTP server on 2121. 
 
-```
+{% highlight cfg %}
 # Elsinore Basic configuration file for the OWFS suite for Debian GNU/Linux.
 #
 #
@@ -118,4 +118,4 @@ ftp: port = 2120
 ####################### OWSERVER ########################
 
 server: port = localhost:4304
-```
+{% endhighlight %}

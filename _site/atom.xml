@@ -4,13 +4,298 @@
  <title>Dougs Doings</title>
  <link href="http://dougedey.github.io/" rel="self"/>
  <link href="http://dougedey.github.io"/>
- <updated>2014-09-27T17:14:57-04:00</updated>
+ <updated>2015-01-05T17:26:06-05:00</updated>
  <id>http://dougedey.github.io</id>
  <author>
    <name>Doug Edey</name>
    <email>doug.edey+pages@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>pH Sensors In Elsinore</title>
+   <link href="http://dougedey.github.io/2014/12/21/pH_Sensors"/>
+   <updated>2014-12-21T00:00:00-05:00</updated>
+   <id>http://dougedey.github.io/2014/12/21/pH_Sensors</id>
+   <content type="html">
+&lt;h1 id=&quot;ph-sensors-now-supported-by-elsinore&quot;&gt;pH Sensors Now Supported By Elsinore!&lt;/h1&gt;
+
+&lt;p&gt;Thanks to cank on HBT who purchased me a &lt;a href=&quot;http://dfrobot.com/wiki/index.php/PH_meter%28SKU:_SEN0161%29&quot;&gt;DF Robots SEN0161&lt;/a&gt; pH Sensor (because he purchased one too), I have added support for pH Sensors.&lt;/p&gt;
+
+&lt;p&gt;pH Sensors are easy for me to expand (I just need to write a single function for each one that’s available&lt;/p&gt;
+
+&lt;h1 id=&quot;hardware&quot;&gt;Hardware&lt;/h1&gt;
+
+&lt;p&gt;I have the dF Robots SEN0161 as a reference pH Sensor. You shouldn’t leave a pH probe in a dirty solution (i.e. the mash or the boil or anything) since it degrades the sensor. When you want to take a reading, ensure the sample is in the safe range of your pH Probe in terms in temperature.&lt;/p&gt;
+
+&lt;p&gt;I strongly recommend using a &lt;a href=&quot;http://pcsensor.com/index.php?_a=product&amp;amp;product_id=43&quot;&gt;DS2450 expansion board&lt;/a&gt; to provide four analog inputs. I replaced the jack on the end with an XLR jack since all my temperature probes use XLR jacks. You’ll need to validate which wire is the 5V, GND, and Data since I’m not 100% certain on the wiring colors being consistent.&lt;/p&gt;
+
+&lt;p&gt;And that’s it… rather simple. Though I would recommend picking up some reference solutions to allow you to calibrate the sensor every now and again.&lt;/p&gt;
+
+&lt;h1 id=&quot;setup&quot;&gt;Setup&lt;/h1&gt;
+
+&lt;p&gt;In Edit mode, you will see a pH Sensor section appear. Clicking the &lt;code&gt;Add pH Sensor&lt;/code&gt; button will show a popover that lets you add a pH sensor.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/8JaeFou.png&quot; alt=&quot;New pH Sensor&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can set the name, the analog pin, choose the DS2450 address and set the offset. You can also use this to calibrate. For example, if you’ve got the probe in a known 7.0 pH solution, you can enter 7.0 in the box and an offset will be applied. For the SEN0161, the tolerance is 0.3 so unless the reading is over 0.3 out, no offset will be set.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/i2T5DsB.png&quot; alt=&quot;pH Sensor Setup&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Pressing the &lt;code&gt;Update&lt;/code&gt; button will save the pH Sensor.&lt;/p&gt;
+
+&lt;h1 id=&quot;usage&quot;&gt;Usage&lt;/h1&gt;
+
+&lt;p&gt;The pH sensor you’ve created will have a &lt;code&gt;Update Value&lt;/code&gt; button&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/BMKbHju.png&quot; alt=&quot;Update Value&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;When pressed the pH value will be read and the pH value will be displayed in the button. You can press it again to update.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/1hClXkm.png&quot; alt=&quot;Updated Value&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This is my reading of a 4.0pH Solution&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Volume Measurement Setup</title>
+   <link href="http://dougedey.github.io/2014/12/20/Volume_Setup"/>
+   <updated>2014-12-20T00:00:00-05:00</updated>
+   <id>http://dougedey.github.io/2014/12/20/Volume_Setup</id>
+   <content type="html">
+&lt;h1 id=&quot;volume-measurement-setup-guide&quot;&gt;Volume Measurement Setup Guide&lt;/h1&gt;
+
+&lt;p&gt;This guide is based off the BrewTroller setup, all of the code was engineered by myself, I just used the research that was done in the forums and their documentation which now appears to be fully defunct. There’s a &lt;a href=&quot;https://web.archive.org/web/20140815170908/https://www.oscsys.com/projects/brewtroller/system-design/volume-measurement&quot;&gt;Wayback snapshot&lt;/a&gt; but I’ll duplicate the information here. And update all BrewTroller References to Elsinore.&lt;/p&gt;
+
+&lt;h1 id=&quot;overview&quot;&gt;Overview&lt;/h1&gt;
+
+&lt;p&gt;Elsinore can use any 0-5V DC analog device to represent the current volume of a vessel. A set of calibrations for the vessel must be recorded to map specific signal values to known volumes. There are at least three calibrations that must be created per vessel to enable Volume measurement, but you can add as many as you want. Elsinore will use the map to plot values between calibration points.&lt;/p&gt;
+
+&lt;p&gt;The most common method used for measuring volume with Elsinor is using pressure sensors. As the height of the liquid increases in a vessel the pressure increases in a corresponding way. Measurement for initial filling can be quite accurate but as temperature decreases volumes will drift as a result of a small vacuum created by the air in the pick up tube connected to the pressure sensor. BrewTroller users cleverly discovered that using a small air pump and feeding a constant stream of air into the pick up tube would eliminate this vacuum and result in accurate volume readings across temperature changes.&lt;/p&gt;
+
+&lt;h1 id=&quot;bubbler-theory&quot;&gt;Bubbler Theory&lt;/h1&gt;
+
+&lt;p&gt;A small air pump is used to force air (at a very low flow rate) into the pressure sensing tube. This forces air to bubble steadily out the end of the pickup tube. The pump runs at all times during use. By ensuring that the tubing is always completely full of air, the pressure reading is always consistent - most importantly, it does not vary with temperature, which is a non-trivial issue in a sealed-tube arrangement.&lt;/p&gt;
+
+&lt;p&gt;By its very nature, this arrangement is also immune to minor air leaks, and can recover from a temporary disconnection of the air line tubing (accidental or otherwise) during use, either of which are catastrophic in a sealed-tube setup.&lt;/p&gt;
+
+&lt;p&gt;There is also no significant risk of moisture/steam reaching the pressure sensor itself, due to the constant stream of air purging the tube.&lt;/p&gt;
+
+&lt;p&gt;One caveat of this setup is that the continuous formation and release of bubbles at the end of the pickup tube does introduce a steady ripple in the pressure sensor reading. Appropriate averaging in Elsinore, and/or hardware filtering, can reduce this significantly.&lt;/p&gt;
+
+&lt;h1 id=&quot;hardware&quot;&gt;Hardware&lt;/h1&gt;
+
+&lt;p&gt;If you have a pressure sensor/analog input device that is 1.7v output max, you can get away with using the onboard BeagleBone Black inputs. However, the MPX5010DP is 5v output and will break the analog pins.&lt;/p&gt;
+
+&lt;p&gt;For this reason, I strongly recommend using a &lt;a href=&quot;http://pcsensor.com/index.php?_a=product&amp;amp;product_id=43&quot;&gt;DS2450 expansion board&lt;/a&gt; to provide four analog inputs. I replaced the jack on the end with an XLR jack since all my temperature probes use XLR jacks. You’ll need to validate which wire is the 5V, GND, and Data since I’m not 100% certain on the wiring colors being consistent.&lt;/p&gt;
+
+&lt;p&gt;Note: An Elsinore User will be selling expansion boards for Elsinore in early 2015.&lt;/p&gt;
+
+&lt;p&gt;In addition to the pressure sensors, air line, and dip tube needed for the standard sealed-tube arrangement, this method requires the addition of tee fittings, air flow valves, and a pump.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/mZHaw5o.gif&quot; alt=&quot;Layout&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;All of these additional parts are available in the aquarium sections of typical pet shops - it should cost less than $15 for parts sufficient for 1-4 sensors.
+A “gang valve” allows one pump to supply many sensors, with an air adjustment valve for each. Even the smallest aquarium air pump should suffice for this application.&lt;/p&gt;
+
+&lt;h1 id=&quot;setup&quot;&gt;Setup&lt;/h1&gt;
+
+&lt;p&gt;As with any pressure sensor arrangement, the dip tube end should be placed as deep in the vessel as possible (to cover the widest range) and must be fixed in place, as any movement can throw off the reading.&lt;/p&gt;
+
+&lt;p&gt;Air flow should be adjusted to achieve a rate of about 2-3 bubbles per second. The rate of bubbles will vary with water depth, so during adjustment the vessel should ideally be at least half full.&lt;/p&gt;
+
+&lt;p&gt;Once you have the system ready to go, you will need to setup the volume measurement in the UI.&lt;/p&gt;
+
+&lt;p&gt;In Edit mode, click the &lt;code&gt;Edit Volume&lt;/code&gt; button on the PID/Temperature probe you want to use. This will pop up a form to allow you to enter the sensor details.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/cG6UB8Z.png&quot; alt=&quot;Volume Form&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you have a setup that uses a voltage divider to go below 1.7v MAX, you can use the BeagleBone Blacks Analog Input pins. Otherwise, you should use a 5V ADC, such as the DS2450.&lt;/p&gt;
+
+&lt;p&gt;The form will let you select from a drop down the DS2450 one wire addresses it finds, then you just need to put the offset (A, B, C, or D).&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;Add Volume&lt;/code&gt; input is the amount of liquid in the vessel at this time. The first addition should be 0 (empty) but with the required pump running.&lt;/p&gt;
+
+&lt;p&gt;You can select the volume unit (Litres, US Gallons, UK Gallons) in the drop down at the bottom.&lt;/p&gt;
+
+&lt;p&gt;Whenever you want to add a new data point. Add water of a known amount (I use 1 US Gallon/3.8 Litre incremements), enter the amount into the volume edit form, then press update. Elsinore will take an average reading and record this to the configuration file.&lt;/p&gt;
+
+&lt;p&gt;You must do at least three volume measurements, ideally you should do: Empty, half full, and full as a minimum. This gives Elsinore a good range of data. If you use an uneven vessel (like a keg) then you should do as many as you can.&lt;/p&gt;
+
+&lt;p&gt;Now when you use the system the volume measurement will be shown for that device automatically.&lt;/p&gt;
+
+&lt;h1 id=&quot;performance-enhancement&quot;&gt;Performance Enhancement&lt;/h1&gt;
+
+&lt;p&gt;The ripple present in the pressure sensor reading due to the bubbles formed with this arrangement shows up as noise in the reading. This noise typically corresponds to a variation of less than a quart; however, the BrewTroller firmware includes averaging on the volume sensors to reduce or eliminate this noise. If necessary you can fine tune the averaging logic in the Config.h of the BrewTroller&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Why Can't I Use Elsinore Without OneWire Temperature Probes?</title>
+   <link href="http://dougedey.github.io/2014/11/24/Why_Cant_I_Use_Elsinore_Without_Temperature_Probes"/>
+   <updated>2014-11-24T00:00:00-05:00</updated>
+   <id>http://dougedey.github.io/2014/11/24/Why_Cant_I_Use_Elsinore_Without_Temperature_Probes</id>
+   <content type="html">&lt;p&gt;If you’re reading this it’s probably because you got an error message from Elsinore on Startup.&lt;/p&gt;
+
+&lt;h3 id=&quot;i-am-trying-to-start-elsinore-but-it-tells-me-i-dont-have-any-temperature-probes&quot;&gt;I am trying to start Elsinore but it tells me I don’t have any temperature probes!&lt;/h3&gt;
+
+&lt;p&gt;Elsinore is a Temperature based PID controller, if you dont have a temperature probe, then you can’t use the core functionality of Elsinore, so it will exit.&lt;/p&gt;
+
+&lt;h2 id=&quot;but-i-want-to-test-my-pumpsssrsgpiopuppy-dog&quot;&gt;But I want to test my pumps/SSRs/GPIO/puppy dog!&lt;/h2&gt;
+
+&lt;p&gt;You should have a search for setting up and testing GPIO on Google, there are much better examples for testing your physical hardware. And you should test this stuff without Elsinore.&lt;/p&gt;
+
+&lt;h2 id=&quot;puppy-dog&quot;&gt;Puppy Dog?&lt;/h2&gt;
+
+&lt;p&gt;Don’t give hops to your puppy. If you do, see a vet now, seriously, GO SEE A VET.&lt;/p&gt;
+
+&lt;p&gt;STOP READING THIS AND SEE A VET IF YOUR PUPPY ATE HOPS!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>How to setup one wire for your system</title>
+   <link href="http://dougedey.github.io/2014/11/12/Setting_Up_One_Wire"/>
+   <updated>2014-11-12T00:00:00-05:00</updated>
+   <id>http://dougedey.github.io/2014/11/12/Setting_Up_One_Wire</id>
+   <content type="html">&lt;p&gt;This is a catch all page that you’ll probably be linked to from the startup process if Elsinore cannot find your One Wire temperature probes&lt;/p&gt;
+
+&lt;h3 id=&quot;what-is-one-wire&quot;&gt;What is One Wire?&lt;/h3&gt;
+
+&lt;p&gt;The One Wire protocol from Dallas, allows lots (up to 255 I think, but way more then Elsinore’ll need) of devices to be attached to one pin. The devices are 64 bit addressed, so pin order doesn’t matter.&lt;/p&gt;
+
+&lt;p&gt;Elsinore uses One Wire for temperature probes and volume reading.&lt;/p&gt;
+
+&lt;p&gt;There’s a difference in setting up One Wire for Linux Kernels below 3.8 (normally RaspberryPi) and 3.8+ (normally Beaglebone)&lt;/p&gt;
+
+&lt;h3 id=&quot;linux-kernel-36-raspberrypi-provided-by-cank&quot;&gt;Linux Kernel 3.6 (RaspberryPi) (provided by Cank)&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.cl.cam.ac.uk/projects/raspberrypi/tutorials/temperature/&quot;&gt;Set up your DS18 probes&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Then run this code in the LXTerminal to automatically load the One-Wire modules on start up&lt;/p&gt;
+
+&lt;p&gt;Open /etc/modules to edit&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo nano /etc/modules
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Add these lines to the bottom of the file /etc/modules&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;w1-gpio
+w1-therm
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then reboot&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo reboot
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;linux-kernel-38-beaglebone-black&quot;&gt;Linux Kernel 3.8 (BeagleBone Black)&lt;/h3&gt;
+
+&lt;p&gt;Do not use a kernel above 3.8 at the moment, you may need to install the 3.8 kernel on a newer image: &lt;code&gt;sudo apt-get install linux-image-3.8.13-bone67&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;For beagleboard to get OneWire support, and GPIO control, you need to install a Device Tree Overlay file. I have added these under the support directory.&lt;/p&gt;
+
+&lt;p&gt;The dts file will show you the pin, but it’s &lt;code&gt;P8.11&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;To compile the overlay: &lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo dtc -O dtb -o /lib/firmware/w1-00A0.dtbo -b 0 -@ w1.dts&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Or copy the w1-00A0.dtbo in the support directory to /lib/firmware (as root), the above command copies the file for you.&lt;/p&gt;
+
+&lt;p&gt;Login as root (such as “sudo su”) and run &lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;echo w1 &amp;gt; /sys/devices/bone_capemgr.8/slots&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Note: bone_capemgr.8 may be bone.capemgr.9 depending on your setup&lt;/p&gt;
+
+&lt;p&gt;I have provided a file which will install the One Wire (and jGPIO DTO files):&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;./extras/w1_setup.sh&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;owfs&quot;&gt;OWFS&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.owfs.org&quot;&gt;OWFS&lt;/a&gt; is used to only read analogue inputs (DS2450) for pH Sensors and Volume Reading.&lt;/p&gt;
+
+&lt;p&gt;The easiest way to set it up once it’s installed is to first stop the OWFS Server process, if you have it installed as a service you can use something like:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo service owserver stop&lt;/code&gt; or &lt;code&gt;sudo /etc/init.d/owserver stop&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Then, replace the &lt;code&gt;/etc/owfs.conf&lt;/code&gt; file with a valid file, I have included mine below as an example.&lt;/p&gt;
+
+&lt;p&gt;This sets up the server on port 4304, the ftp server on 2120 and the HTTP server on 2121. &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;cfg&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Elsinore Basic configuration file for the OWFS suite for Debian GNU/Linux.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# This is the main OWFS configuration file. You should read the&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# owfs.conf(5) manual page in order to understand the options listed&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# here.&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;######################## SOURCES ########################&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# With this setup, any client (but owserver) uses owserver on the&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# local machine...&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;! server: server&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;localhost:4304&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# ...and owserver uses the real hardware, by default fake devices&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# This part must be changed on real installation&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#server: FAKE = DS18S20,DS2405&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# USB device: DS9490&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;server: w1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;all&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# Serial port: DS9097&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#server: device = /dev/ttyS1&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# owserver tcp address&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#server: server = 192.168.10.1:3131&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# random simulated device&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#server: FAKE = DS18S20,DS2405&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;######################### OWFS ##########################&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;mountpoint&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/mnt/1wire&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;allow_other&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;####################### OWHTTPD #########################&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;http: port&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;2121&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;####################### OWFTPD ##########################&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;ftp: port&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;2120&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;####################### OWSERVER ########################&lt;/span&gt;
+
+&lt;span class=&quot;na&quot;&gt;server: port&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;localhost:4304&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>StrangeBrew Elsinore Setup Videos</title>
+   <link href="http://dougedey.github.io/2014/09/27/Setup_Videos"/>
+   <updated>2014-09-27T00:00:00-04:00</updated>
+   <id>http://dougedey.github.io/2014/09/27/Setup_Videos</id>
+   <content type="html">
+&lt;h1 id=&quot;elsinore-video-instructions&quot;&gt;Elsinore Video Instructions&lt;/h1&gt;
+
+&lt;p&gt;I decided to create some videos that explain how to setup Elsinore.&lt;/p&gt;
+
+&lt;p&gt;The first one shows what software you need to install, and how to start Elsinore&lt;/p&gt;
+
+&lt;iframe width=&quot;480&quot; height=&quot;360&quot; src=&quot;//www.youtube.com/embed/xWfFwci3Dgw&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;The second shows how to setup the devices, temperature probes, pumps, timers, mash steps, etc… from the web interface&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/g9F_RP89-7M&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Web Based Mash Profiles</title>
@@ -113,26 +398,6 @@ The Boxes have text in them to tell you what’s expected from each box.&lt;br /
  </entry>
  
  <entry>
-   <title>StrangeBrew Elsinore Setup Videos</title>
-   <link href="http://dougedey.github.io/2014/08/27/Setup_Videos"/>
-   <updated>2014-08-27T00:00:00-04:00</updated>
-   <id>http://dougedey.github.io/2014/08/27/Setup_Videos</id>
-   <content type="html">
-&lt;h1 id=&quot;elsinore-video-instructions&quot;&gt;Elsinore Video Instructions&lt;/h1&gt;
-
-&lt;p&gt;I decided to create some videos that explain how to setup Elsinore.&lt;/p&gt;
-
-&lt;p&gt;The first one shows what software you need to install, and how to start Elsinore&lt;/p&gt;
-
-&lt;iframe width=&quot;480&quot; height=&quot;360&quot; src=&quot;//www.youtube.com/embed/xWfFwci3Dgw&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;The second shows how to setup the devices, temperature probes, pumps, timers, mash steps, etc… from the web interface&lt;/p&gt;
-
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;//www.youtube.com/embed/g9F_RP89-7M&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-</content>
- </entry>
- 
- <entry>
    <title>Required Hardware</title>
    <link href="http://dougedey.github.io/2014/08/14/Components"/>
    <updated>2014-08-14T00:00:00-04:00</updated>
@@ -173,6 +438,26 @@ The Boxes have text in them to tell you what’s expected from each box.&lt;br /
 &lt;h2 id=&quot;the-kettleselements&quot;&gt;The Kettles/Elements&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://theelectricbrewery.com/&quot;&gt;The Electric Brewery&lt;/a&gt; has incredibly indepth guides for all this stuff, I recommend you use their guides (and their kits if you want to make things easier). But don’t get the PIDs. Elsinore replaces all the PIDs for you&lt;/p&gt;
+
+&lt;h2 id=&quot;volume-sensing&quot;&gt;Volume sensing&lt;/h2&gt;
+
+&lt;p&gt;More detail is in the &lt;a href=&quot;http://dougedey.github.io/2014/12/20/Volume_Setup/&quot;&gt;Volume Setup Documentation&lt;/a&gt; but to summarise:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A (DS2450)[http://pcsensor.com/index.php?_a=product&amp;amp;product_id=43] analog input device&lt;/li&gt;
+  &lt;li&gt;An (MPX5010DP)[https://widgeneering.com/mpx5010dp_freescale_pressure_sensor_with_carrier.html], one per vessel you want to measure&lt;/li&gt;
+  &lt;li&gt;A small aquarium pump (for air)&lt;/li&gt;
+  &lt;li&gt;Some Ts, aquarium hose, air flow valves&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;ph-sensor&quot;&gt;pH Sensor&lt;/h2&gt;
+
+&lt;p&gt;Only one (pH sensor)[http://dougedey.github.io/2014/12/21/pH_Sensors/] is currently supported by Elsinore, the DFRobots SEN0161&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A (DS2450)[http://pcsensor.com/index.php?_a=product&amp;amp;product_id=43] analog input device&lt;/li&gt;
+  &lt;li&gt;A (SEN0161)[http://dfrobot.com/wiki/index.php/PH_meter%28SKU:_SEN0161%29]&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;special-instructions-for-elsinore&quot;&gt;Special instructions for Elsinore&lt;/h2&gt;
 
@@ -261,16 +546,7 @@ What is the OWFS server port? (Defaults to 4304)
 
 &lt;p&gt;Volume reading can be done using any analogue input, I personally used the same hardware as &lt;a href=&quot;https://www.oscsys.com/projects/brewtroller/system-design/volume-measurement&quot;&gt;Brewtroller&lt;/a&gt; connected to a one wire DS2450, this allows it to connect to the one wire bus.&lt;/p&gt;
 
-&lt;p&gt;You can also setup the volume reading from the web UI, double clicking on the volume box will show you the input.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;You can set the Analogue input PIN (for BBB and RPi), but these are normally voltage limited&lt;/li&gt;
-  &lt;li&gt;Or you can set the One Wire address (for a DS2450, which is what I use) and the offset for the input which will give you up to 5V.&lt;/li&gt;
-  &lt;li&gt;You can set the Volume Unit (this doesn’t matter since there’s no conversion between values at the moment)&lt;/li&gt;
-  &lt;li&gt;Adding a volume point will add a new data point to the system. When you have three or more the system will be able to calculate the volume.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://i.imgur.com/9pYNdQf.png&quot; alt=&quot;Setup Volume&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://dougedey.github.io/2014/12/20/Volume_Setup&quot;&gt;More indepth documentation&lt;/a&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;raspberrypi-or-beagleboard&quot;&gt;RaspberryPi or Beagleboard?&lt;/h1&gt;
 
@@ -615,6 +891,8 @@ Pretty sweet!!!&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;It is highly recommended you setup a KILL SWITCH that will terminate the negative and/or the positive to the SSRs. This is a safety feature and allows you to kill the SSRs without going through the UI&lt;/strong&gt;&lt;/p&gt;
 
+&lt;p&gt;Do not use a kernel above 3.8 at the moment, you may need to install the 3.8 kernel on a newer image: &lt;code&gt;sudo apt-get install linux-image-3.8.13-bone67&lt;/code&gt;&lt;/p&gt;
+
 &lt;h3 id=&quot;launching&quot;&gt;Launching&lt;/h3&gt;
 
 &lt;p&gt;You &lt;em&gt;must&lt;/em&gt; set the “Gpio_definitions” property on launch &lt;/p&gt;
@@ -633,7 +911,9 @@ Pretty sweet!!!&lt;/p&gt;
 
 &lt;h3 id=&quot;overlays&quot;&gt;Overlays&lt;/h3&gt;
 
-&lt;p&gt;For beagleboard to get OneWire support, and GPIO control, you need to install a Device Tree Overlay file. I have added these under the support directory:&lt;/p&gt;
+&lt;p&gt;For beagleboard to get OneWire support, and GPIO control, you need to install a Device Tree Overlay file. I have added these under the support directory.&lt;/p&gt;
+
+&lt;p&gt;The dts file will show you the pin, but it’s &lt;code&gt;P8.11&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;To compile the overlay: &lt;/p&gt;
 
@@ -669,9 +949,19 @@ Pretty sweet!!!&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;java -cp Elsinore.jar -Dgpio_definition=extras/beaglebone.json jGPIO.DTOTest GPIO0_7&lt;/code&gt; &lt;/p&gt;
 
-&lt;p&gt;Will recreate the default GPIO0_7 file as jGPIO-00A0.dto, you will then need to compile this as the same as above but for jgpio&lt;/p&gt;
+&lt;p&gt;Will recreate the default GPIO0_7 file as jgpio-00A0.dto.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;java -cp Elsinore.jar -Dgpio_definition=extras/beaglebone.json jGPIO.DTOTest GPIO0_7 GPIO0_8 GPIO1_12&lt;/code&gt; &lt;/p&gt;
+
+&lt;p&gt;Will create a Device Tree Overlay with GPIO0_7, GPIO0_8 and GPIO1_12 for export.&lt;/p&gt;
+
+&lt;p&gt;You will then need to compile this as the same as above but for jgpio:&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;sudo dtc -O dtb -o /lib/firmware/jgpio-00A0.dtbo -b 0 -@ jgpio-00A0.dto&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This places the compiled file in the /lib/firmware directory.&lt;/p&gt;
+
+&lt;p&gt;Using &lt;code&gt;extra/bbb_setup.sh&lt;/code&gt; will always export the jgpio overlay to the cape manager, if there is a firmware file for it.&lt;/p&gt;
 
 &lt;h3 id=&quot;analogue-inputs&quot;&gt;Analogue inputs&lt;/h3&gt;
 
