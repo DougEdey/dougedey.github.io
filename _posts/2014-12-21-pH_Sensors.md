@@ -12,7 +12,12 @@ pH Sensors Now Supported By Elsinore!
 
 Thanks to cank on HBT who purchased me a [DF Robots SEN0161](http://dfrobot.com/wiki/index.php/PH_meter%28SKU:_SEN0161%29) pH Sensor (because he purchased one too), I have added support for pH Sensors.
 
-pH Sensors are easy for me to expand (I just need to write a single function for each one that's available
+pH Sensors are easy for me to expand (I just need to write a single function for each one that's available)
+
+A Note On pH Sensors That Are High Temperature
+==========
+
+As stated below, don't leave a pH Sensor in the mash or boil, these are referred to as "Dirty" solutions, pH sensors (generally) [work](http://www.explainthatstuff.com/how-ph-meters-work.html) by losing ions from their probes. If you leave a sensor in the mash for 60+ minutes, and in the boil for 60+ minutes, you're degrading the sensor a lot faster than if you were to take specific measurements at a specific points.
 
 Hardware
 ==========
