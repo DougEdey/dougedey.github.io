@@ -29,6 +29,14 @@ Add these lines to the bottom of the file /etc/modules
 	w1-gpio
 	w1-therm
 
+If you're on a newer kernel you may need to edit your /boot/config.txt
+
+    sudo nano /boot/config.txt
+
+Add this line
+
+    dtoverlay=w1-gpio,gpiopin=4
+
 Then reboot
 
 	sudo reboot

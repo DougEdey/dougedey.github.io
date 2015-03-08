@@ -41,4 +41,13 @@ sudo modprobe w1-gpio
 sudo modprobe w1-therm
 ````
 
+If you're on a newer kernel you may need to edit your /boot/config.txt
+
+    sudo nano /boot/config.txt
+
+Add this line
+
+    dtoverlay=w1-gpio,gpiopin=4
+
+
 If you do not use OWFS, you cannot use anything except for temperature probes on the one-wire bus
