@@ -29,36 +29,32 @@ OK, That's Easy. How Do I Activate it? How Do I Deactivate It? WHAT HAPPENS DUDE
 
 So, here's a basic example with how the profiles work, using a real world example taken from a user on HBT
 
-```
-Dough-in at 133F
-wait for 15 minutes
-raise to 152F
-hold for 60 minutes
-raise to 170F
-```
+    Dough-in at 133F
+    wait for 15 minutes
+    raise to 152F
+    hold for 60 minutes
+    raise to 170F
 
 You will get a Trigger profile of:
 
-```
-Temperature Trigger: 133F
-Wait Trigger: 15 mins
-Temperature Trigger 152F
-Wait Trigger: 60 mins
-Temperature Trigger: 170F
-```
+    Temperature Trigger: 133F
+    Wait Trigger: 15 mins
+    Temperature Trigger 152F
+    Wait Trigger: 60 mins
+    Temperature Trigger: 170F
 
 When you press "Activate"
 
-The PID will set to 133F as the target temperature, and will be automatically set to "Auto"
+    The PID will set to 133F as the target temperature, and will be automatically set to "Auto"
 
-When 133F (+-2F) is hit, the Wait Trigger will activate.
+    When 133F (+-2F) is hit, the Wait Trigger will activate.
 
-15 minutes later, the wait trigger will deactivate.
+    15 minutes later, the wait trigger will deactivate.
 
-The next Temperature Trigger will activate, set the PID target temperature to 152F.
+    The next Temperature Trigger will activate, set the PID target temperature to 152F.
 
-When 152F (+/-2F) is hit, the next wait trigger will activate.
+    When 152F (+/-2F) is hit, the next wait trigger will activate.
 
-60 minutes later, the wait trigger will deactivate.
+    60 minutes later, the wait trigger will deactivate.
 
-The next Temperature Trigger will activate, set the PID target temperature to 170F.
+    The next Temperature Trigger will activate, set the PID target temperature to 170F.
