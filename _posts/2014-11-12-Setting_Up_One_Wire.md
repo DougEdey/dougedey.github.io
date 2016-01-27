@@ -117,5 +117,5 @@ ftp: port = 2120
 
 ####################### OWSERVER ########################
 
-server: port = localhost:4304
+server: port = 4304
 {% endhighlight %}
